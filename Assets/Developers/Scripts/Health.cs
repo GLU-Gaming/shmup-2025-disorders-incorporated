@@ -36,7 +36,9 @@ public class Health : MonoBehaviour
         {
             healthbarFill.fillAmount = currentHealth / maxHealth;
             Debug.Log("Health Bar Updated: " + healthbarFill.fillAmount);
-            if(currentHealth == 0) { Death(); }
+            if(currentHealth == 0) {
+               Death(); 
+            }
         }
     }
 
