@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
     public float speed = 10f;
     public float lifetime = 1.5f;
 
+    private Health healthScript;
     private Rigidbody rb;
 
     void Start()
@@ -16,16 +17,15 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
 
-            Destroy(gameObject); 
-            /*
-             Destroy the enemy or let the enemy take damage etc etc.
-           
-            */
+            Destroy(gameObject);
+
+            other.GetComponent<Health>().TakeDamage(15f);
+
 
         }
     }

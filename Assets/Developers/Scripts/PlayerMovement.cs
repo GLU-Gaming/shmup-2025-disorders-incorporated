@@ -19,8 +19,15 @@ public class PlayerMovement : MonoBehaviour
     public Transform torepedoPosistion;
     public Transform torpedoFirePoint;
     private float nextTorpedoFireTime = 0f;
-    public float torpedoFireRate = 0.5f;
-    public bool canShoot = true;
+    public float torpedoFireRate = 2f;
+    public bool canShootTorpedo = true;
+
+    [Header("FlameThrower:")]
+    public GameObject FlamethrowerPrefab;
+    public float flameThrowerFireRate = 3;
+    private float nextFlameThrowerFireTime = 0f;
+    public bool canShootFlames = true;
+
 
     [Header("Animation:")]
     public Transform childWithAnimator; // Reference to the child object with the Animator component
@@ -71,10 +78,17 @@ public class PlayerMovement : MonoBehaviour
             nextFireTime = Time.time + 0f + fireRate;
         }
 
-        if (Input.GetButton("Fire2") && Time.time >= nextTorpedoFireTime && canShoot)
+        if (Input.GetButton("Fire2") && Time.time >= nextTorpedoFireTime && canShootTorpedo)
         {
             StartCoroutine(DelayedShootTorpedo());
             nextTorpedoFireTime = Time.time + 0f + torpedoFireRate;
+        }
+
+        if (Input.GetButton("Fire3") && Time.time >= nextFlameThrowerFireTime && canShootFlames)
+        {
+            Debug.Log("Flames");
+            StartCoroutine(FlameThrowerDeploy());
+            nextFlameThrowerFireTime = Time.time + 0f + flameThrowerFireRate;
         }
     }
 
@@ -85,14 +99,14 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DelayedShootTorpedo()
     {
-        canShoot = false;
+        canShootTorpedo = false;
         // Control the swimming animation
         if (animator != null)
         {
             animator.SetBool("Shoot_Torpedo", true);
         }
 
-        yield return new WaitForSeconds(1.45f); // Wait for 1.45 second
+        yield return new WaitForSeconds(1.45f); // Wait for 1.45 seconds
         Instantiate(torpedoPrefab, torpedoFirePoint.position, torepedoPosistion.rotation); // Torpedo is shot at set torpedo point
 
         // Control the swimming animation
@@ -100,9 +114,19 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Shoot_Torpedo", false);
         }
-        yield return new WaitForSeconds(1.45f); // Wait for 1.45 second
+        yield return new WaitForSeconds(1.45f); // Wait for 1.45 seconds
 
-        canShoot = true;
+        canShootTorpedo = true;
+
+    }
+
+    IEnumerator FlameThrowerDeploy()
+    {
+        canShootFlames=false;
+        FlamethrowerPrefab.SetActive(true);
+        yield return new WaitForSeconds(2f); // Wait for 2 seconds
+        FlamethrowerPrefab.SetActive(false);
+        canShootFlames = true;
 
     }
 

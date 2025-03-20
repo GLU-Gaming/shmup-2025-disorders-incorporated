@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2713285404501605535}
   - component: {fileID: 1504832883005668173}
   - component: {fileID: 4804877616667622378}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Torpedo_Player_msh
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

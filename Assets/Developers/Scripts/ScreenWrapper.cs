@@ -4,6 +4,8 @@ public class ScreenWrapper : MonoBehaviour
 {
     private Camera mainCamera;
     private float screenHalfHeightInWorldUnits;
+    public float BottomoffSet;
+    public float TopoffSet;
 
     void Start()
     {
@@ -14,14 +16,13 @@ public class ScreenWrapper : MonoBehaviour
     void Update()
     {
         Vector3 playerPosition = transform.position;
-        //float playerHalfHeight = GetComponent<Renderer>().bounds.extents.y;
-
+       
         // Calculate the screen bounds
         float topBound = screenHalfHeightInWorldUnits;
         float bottomBound = -screenHalfHeightInWorldUnits;
 
         // Clamp the player's position within the screen bounds
-        playerPosition.y = Mathf.Clamp(playerPosition.y, bottomBound, topBound);
+        playerPosition.y = Mathf.Clamp(playerPosition.y, bottomBound - BottomoffSet, topBound + TopoffSet);
         transform.position = playerPosition;
     }
 }
