@@ -204,14 +204,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Enemy") && !ForceFieldActive)
-    //    {
-    //        healthScript.TakeDamage(10); // 10 dmg
-    //        other.gameObject.SetActive(false);
-    //    }
-    //}
+   
 
     private void OnCollisionEnter(Collision collision)
     {
