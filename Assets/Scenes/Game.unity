@@ -848,6 +848,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 832704028964031203, guid: 4d35f70ff91abb146b3570c662aecf5a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 832704028964031203, guid: 4d35f70ff91abb146b3570c662aecf5a, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -1802,10 +1806,6 @@ PrefabInstance:
     - target: {fileID: 7758082322784721342, guid: 6e4ed0196b9be2544b224c5a82ebf352, type: 3}
       propertyPath: m_Layer
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847950610609987820, guid: 6e4ed0196b9be2544b224c5a82ebf352, type: 3}
-      propertyPath: maxHealth
-      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
