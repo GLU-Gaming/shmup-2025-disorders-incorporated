@@ -288,10 +288,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6033148597550601854, guid: d08e5fa68417bdb4cbf5cac03d6838b7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0826288d1b7e36748aa9a860eadb69ec, type: 2}
+    - target: {fileID: -4550027208333499234, guid: d08e5fa68417bdb4cbf5cac03d6838b7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0826288d1b7e36748aa9a860eadb69ec, type: 2}
+    - target: {fileID: -292282812903521410, guid: d08e5fa68417bdb4cbf5cac03d6838b7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0826288d1b7e36748aa9a860eadb69ec, type: 2}
     - target: {fileID: 919132149155446097, guid: d08e5fa68417bdb4cbf5cac03d6838b7, type: 3}
       propertyPath: m_Name
       value: 'gears '
       objectReference: {fileID: 0}
+    - target: {fileID: 2344441494121685528, guid: d08e5fa68417bdb4cbf5cac03d6838b7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0826288d1b7e36748aa9a860eadb69ec, type: 2}
+    - target: {fileID: 8184141838976963981, guid: d08e5fa68417bdb4cbf5cac03d6838b7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0826288d1b7e36748aa9a860eadb69ec, type: 2}
+    - target: {fileID: 8314020773485715432, guid: d08e5fa68417bdb4cbf5cac03d6838b7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0826288d1b7e36748aa9a860eadb69ec, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
