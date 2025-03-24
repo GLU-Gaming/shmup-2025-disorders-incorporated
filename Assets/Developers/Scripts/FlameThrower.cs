@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
-using UnityEngine.Playables;
 
 public class FlameThrower : MonoBehaviour
 {
@@ -9,6 +7,6 @@ public class FlameThrower : MonoBehaviour
   
     private void OnTriggerStay(Collider other)
     {
-       other.GetComponent<Health>().TakeDamage(1.5f);
+       other.GetComponent<Health>().TakeDamage(2f);
     }
 }
