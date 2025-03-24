@@ -1,16 +1,31 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Gamemanager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private PlayerMovement playerMovement;
+    public GameObject Player;
+
+    public float maxForceCharge = 300;
+    public Image ForceFill;
+
+    private void Start()
     {
-        
+        playerMovement = Player.GetComponent<PlayerMovement>();
+        if (playerMovement == null)
+        {
+            Debug.LogError("PlayerMovement component not found on the player.");
+        }
+
+        UpdateForceChargeUI(maxForceCharge); // Initialize the UI bar to full charge
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateForceChargeUI(float currentCharge)
     {
-        
+        if (ForceFill != null)
+        {
+            ForceFill.fillAmount = currentCharge / maxForceCharge;
+            Debug.Log("Force Charge Updated: " + ForceFill.fillAmount);
+        }
     }
 }

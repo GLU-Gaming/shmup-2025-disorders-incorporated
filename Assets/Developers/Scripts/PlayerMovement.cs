@@ -6,17 +6,26 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Settings:")]
     public float moveSpeed = 4f;
     private Health healthScript;
+    private Gamemanager gamemanager;
+    public GameObject Manager;
+
+    [Header("ForceField:")]
+    [SerializeField] private GameObject ForceField;
+    public float ForceFieldCharge;
+    private bool ForceFieldActive;
+    public float shockwaveRadius = 5f; // Radius of the shockwave
+    public float shockwaveForce = 10f; // Force applied to objects
 
     [Header("Base Laser Settings:")]
     public GameObject bulletPrefab;
-    public Transform bulletPosistion;
+    public Transform bulletPosition;
     public Transform firePoint;
     public float fireRate = 0.5f;
     private float nextFireTime = 0f;
 
     [Header("Torpedo Setting:")]
     public GameObject torpedoPrefab;
-    public Transform torepedoPosistion;
+    public Transform torpedoPosition;
     public Transform torpedoFirePoint;
     private float nextTorpedoFireTime = 0f;
     public float torpedoFireRate = 2f;
@@ -28,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
     private float nextFlameThrowerFireTime = 0f;
     public bool canShootFlames = true;
 
-
     [Header("Animation:")]
     public Transform childWithAnimator; // Reference to the child object with the Animator component
     private Animator animator;
@@ -39,6 +47,12 @@ public class PlayerMovement : MonoBehaviour
         if (healthScript == null)
         {
             Debug.LogError("Health component not found on the player.");
+        }
+
+        gamemanager = Manager.GetComponent<Gamemanager>();
+        if (gamemanager == null)
+        {
+            Debug.LogError("Gamemanager component not found");
         }
 
         if (childWithAnimator != null)
@@ -53,12 +67,15 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Child object with Animator not assigned.");
         }
+
+        ForceFieldCharge = gamemanager.maxForceCharge;
     }
 
     void Update()
     {
         HandleMovement();
         HandleShooting();
+        HandleShielding();
     }
 
     void HandleMovement()
@@ -75,26 +92,26 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
         {
             Shoot();
-            nextFireTime = Time.time + 0f + fireRate;
+            nextFireTime = Time.time + fireRate;
         }
 
         if (Input.GetButton("Fire2") && Time.time >= nextTorpedoFireTime && canShootTorpedo)
         {
             StartCoroutine(DelayedShootTorpedo());
-            nextTorpedoFireTime = Time.time + 0f + torpedoFireRate;
+            nextTorpedoFireTime = Time.time + torpedoFireRate;
         }
 
         if (Input.GetButton("Fire3") && Time.time >= nextFlameThrowerFireTime && canShootFlames)
         {
             Debug.Log("Flames");
             StartCoroutine(FlameThrowerDeploy());
-            nextFlameThrowerFireTime = Time.time + 0f + flameThrowerFireRate;
+            nextFlameThrowerFireTime = Time.time + flameThrowerFireRate;
         }
     }
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, bulletPosistion.rotation); // Bullet is shot at set bullet point
+        Instantiate(bulletPrefab, firePoint.position, bulletPosition.rotation); // Bullet is shot at set bullet point
     }
 
     IEnumerator DelayedShootTorpedo()
@@ -107,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1.45f); // Wait for 1.45 seconds
-        Instantiate(torpedoPrefab, torpedoFirePoint.position, torepedoPosistion.rotation); // Torpedo is shot at set torpedo point
+        Instantiate(torpedoPrefab, torpedoFirePoint.position, torpedoPosition.rotation); // Torpedo is shot at set torpedo point
 
         // Control the swimming animation
         if (animator != null)
@@ -117,24 +134,91 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1.45f); // Wait for 1.45 seconds
 
         canShootTorpedo = true;
-
     }
 
     IEnumerator FlameThrowerDeploy()
     {
-        canShootFlames=false;
+        canShootFlames = false;
         FlamethrowerPrefab.SetActive(true);
         yield return new WaitForSeconds(2f); // Wait for 2 seconds
         FlamethrowerPrefab.SetActive(false);
         canShootFlames = true;
-
     }
+
+    void HandleShielding()
+    {
+        if (Input.GetButton("Shield") && ForceFieldCharge > 0)
+        {
+            Shielding();
+        }
+        else
+        {
+            ForceField.gameObject.SetActive(false);
+            ForceFieldActive = false;
+        }
+    }
+
+    void Shielding()
+    {
+        if (ForceField != null)
+        {
+            ForceField.gameObject.SetActive(true);
+            ForceFieldActive = true;
+        }
+
+        if (ForceFieldCharge > 0)
+        {
+            if (ForceFieldCharge == 1)
+            {
+                CreateShockwave();
+            }
+            ForceFieldCharge--;
+            if (gamemanager != null)
+            {
+                gamemanager.UpdateForceChargeUI(ForceFieldCharge);
+            }
+        }
+    }
+
+    void CreateShockwave()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, shockwaveRadius);
+        foreach (Collider nearbyObject in colliders)
+        {
+            Drone drone = nearbyObject.GetComponent<Drone>();
+            if (drone != null)
+            {
+                Vector3 direction = nearbyObject.transform.position - transform.position;
+                drone.PushBack(direction, shockwaveForce);
+            }
+            else
+            {
+                Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    Vector3 direction = nearbyObject.transform.position - transform.position;
+                    rb.AddForce(direction.normalized * shockwaveForce, ForceMode.Impulse);
+                }
+            }
+        }
+    }
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Enemy") && !ForceFieldActive)
+    //    {
+    //        healthScript.TakeDamage(10); // 10 dmg
+    //        other.gameObject.SetActive(false);
+    //    }
+    //}
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && !ForceFieldActive)
         {
             healthScript.TakeDamage(10); // 10 dmg
+            collision.gameObject.SetActive(false);
         }
     }
 }
