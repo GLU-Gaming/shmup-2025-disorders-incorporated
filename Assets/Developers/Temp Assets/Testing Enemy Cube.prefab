@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8103760231595589114}
   - component: {fileID: 8861428138668518029}
   - component: {fileID: 8502667637243094658}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3334031060431393602}
   - component: {fileID: 1645408097951728905}
   - component: {fileID: 893470232223438716}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: HealthbarFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,8 @@ GameObject:
   - component: {fileID: 6648651311257209379}
   - component: {fileID: 7011441359129033614}
   - component: {fileID: 7847950610609987820}
-  m_Layer: 0
+  - component: {fileID: 3951064473949601177}
+  m_Layer: 8
   m_Name: Testing Enemy Cube
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -282,12 +283,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.87570816, z: 1}
+  m_Center: {x: 0, y: 0.06214592, z: 0}
 --- !u!54 &7011441359129033614
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -310,11 +311,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &7847950610609987820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +331,22 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   healthbarFill: {fileID: 893470232223438716}
+--- !u!114 &3951064473949601177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333810543401763533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a00fea9029f2804d9dbbf39e03344be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  speed: 3
+  bobFrequency: 1
+  bobAmplitude: 0.5
 --- !u!1 &7758082322784721342
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +358,7 @@ GameObject:
   - component: {fileID: 3638190749183439438}
   - component: {fileID: 7230154623944901007}
   - component: {fileID: 1648149847404205466}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: HealthbarBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

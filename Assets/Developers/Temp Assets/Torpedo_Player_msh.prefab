@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2713285404501605535}
   - component: {fileID: 1504832883005668173}
   - component: {fileID: 4804877616667622378}
+  - component: {fileID: 4523859842890318124}
   m_Layer: 7
   m_Name: Torpedo_Player_msh
   m_TagString: Bullet
@@ -129,3 +130,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   lifetime: 4
+  damageCount: 50
+--- !u!136 &4523859842890318124
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5406256618152030845}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0042304103
+  m_Height: 0.050456285
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.025228143, z: 0.000050120987}
