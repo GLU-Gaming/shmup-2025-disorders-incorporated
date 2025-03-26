@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     private LevelLoader levelLoader;
 
     private Gamemanager gamemanager;
-    public GameObject Manager;
+  
 
 
     void Start()
