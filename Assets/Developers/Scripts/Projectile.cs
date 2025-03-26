@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     public float lifetime = 1.5f;
     public float damageCount;
 
+    public bool isEnemy = true;
 
     private Health healthScript;
     private Rigidbody rb;
@@ -15,13 +16,27 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         float moveX = 1;
         float moveY = 0;
-        rb.linearVelocity = new Vector2(moveX,moveY) * speed;
+        if (!isEnemy)
+        {
+            rb.linearVelocity = new Vector2(moveX, moveY) * speed;
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(-moveX, moveY) * speed;
+        }
         Destroy(gameObject, lifetime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+
+        if(other.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+
+        if ((other.gameObject.CompareTag("Enemy") && !isEnemy) || (other.gameObject.CompareTag("Player") && isEnemy))
         {
 
             Destroy(gameObject);

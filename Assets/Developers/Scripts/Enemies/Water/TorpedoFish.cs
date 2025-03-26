@@ -3,17 +3,17 @@ using System.Collections;
 
 public class TorpedoFish : FlyingEnemy
 {
-    private bool isMoving = true; // Flag to control movement
+    public bool isMoving = true; // Flag to control movement
     public float lifetime = 4f;
     public float attackInterval = 2f; // Interval between attacks in seconds
     public GameObject Projectile;
+    public Transform ProjectilePosistioning;
 
     private Vector3 startPosition;
 
     void Start()
     {
         startPosition = transform.position;
-        transform.rotation = Quaternion.identity; // Ensure the fish is not rotated
         Destroy(gameObject, lifetime);
         StartCoroutine(AttackRoutine()); // Start the attack routine
     }
@@ -31,13 +31,14 @@ public class TorpedoFish : FlyingEnemy
         // Implement the attack logic here
         if (Projectile != null)
         {
-            Instantiate(Projectile, transform.position, Quaternion.identity);
+            Instantiate(Projectile, transform.position, ProjectilePosistioning.rotation);
             Debug.Log("TorpedoFish attacked!");
         }
     }
 
     public override void Move()
     {
+        // Move in the direction the fish is facing
         transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 

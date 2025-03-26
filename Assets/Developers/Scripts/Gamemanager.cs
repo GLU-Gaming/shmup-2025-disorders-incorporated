@@ -20,6 +20,8 @@ public class Gamemanager : MonoBehaviour
 
     public GameObject enemyPrefab;
     public float spawnDistance = 10f; // Distance in front of the player to spawn enemies
+    public float spawnAmount;
+    public float spawnDelay;
     public float minY = -11f; // Minimum Y value for spawning
     public float maxY = 8f; // Maximum Y value for spawning
 
@@ -102,16 +104,16 @@ public class Gamemanager : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        for (int i = 0; i < 5; i++) // Spawn 5 enemies per wave
+        for (int i = 0; i < spawnAmount; i++) // Spawn 5 enemies per wave
         {
             Vector3 spawnPosition = Player.transform.position + Player.transform.forward * spawnDistance;
             spawnPosition.y = Random.Range(minY, maxY);
 
             // Create a rotation with 90 degrees on the X and Y axes
-            Quaternion spawnRotation = Quaternion.Euler(0, -90, 0);
+            Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
 
             Instantiate(enemyPrefab, spawnPosition, spawnRotation);
-            yield return new WaitForSeconds(1); // Wait for 1 second before spawning the next enemy
+            yield return new WaitForSeconds(spawnDelay); // Wait for 1 second before spawning the next enemy
         }
     }
 }
