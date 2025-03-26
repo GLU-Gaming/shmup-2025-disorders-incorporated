@@ -4,6 +4,8 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
     public float lifetime = 1.5f;
+    public float damageCount;
+
 
     private Health healthScript;
     private Rigidbody rb;
@@ -23,8 +25,7 @@ public class Projectile : MonoBehaviour
         {
 
             Destroy(gameObject);
-
-            other.GetComponent<Health>().TakeDamage(15f);
+             other.GetComponent<Health>().TakeDamage(damageCount);
 
 
         }

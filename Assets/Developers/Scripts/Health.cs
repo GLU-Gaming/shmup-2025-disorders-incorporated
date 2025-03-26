@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -7,11 +8,18 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public Image healthbarFill;
+    private LevelLoader levelLoader;
+
+    private Gamemanager gamemanager;
+    public GameObject Manager;
+
 
     void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthBar();
+
+        gamemanager = FindAnyObjectByType<Gamemanager>();
     }
 
     public void TakeDamage(float amount)
@@ -47,5 +55,16 @@ public class Health : MonoBehaviour
     {
         Debug.Log(gameObject.name + " has died!");
         Destroy(gameObject);
+
+        if (gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("Menu");
+
+        }
+
+        if (gameObject.CompareTag("Enemy"))
+        {
+            gamemanager.IncreaseScore(15);
+        }
     }
 }
