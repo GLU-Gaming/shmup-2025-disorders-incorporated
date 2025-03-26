@@ -2264,6 +2264,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthbarFill: {fileID: 2028220128}
+  Manager: {fileID: 0}
 --- !u!114 &1955536462
 MonoBehaviour:
   m_ObjectHideFlags: 0
