@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
         {
 
             Destroy(gameObject);
-             other.GetComponent<Health>().TakeDamage(damageCount);
+            other.GetComponent<Health>().TakeDamage(damageCount);
 
 
         }
