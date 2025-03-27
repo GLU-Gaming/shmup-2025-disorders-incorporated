@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using System.Collections;
 
 public class Gamemanager : MonoBehaviour
@@ -10,9 +11,9 @@ public class Gamemanager : MonoBehaviour
     public float maxForceCharge = 300;
     public Image ForceFill;
 
-    public Text scoreText;
-    public Text highscoreText;
-    public Text waveText;
+    public TMP_Text scoreText;
+    public TMP_Text highscoreText;
+    public TMP_Text waveText;
 
     private int score;
     private int highscore;
