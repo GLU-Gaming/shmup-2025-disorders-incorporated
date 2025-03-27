@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66f04954e160e534e989756132499962, type: 2}
+  - {fileID: 2100000, guid: 61501ad8b977e1d49bf7354a8b60b815, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   lifetime: 4
-  damageCount: 50
+  damageCount: 90
   isEnemy: 0
 --- !u!136 &4523859842890318124
 CapsuleCollider:

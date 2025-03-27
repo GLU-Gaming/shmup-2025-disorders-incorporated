@@ -7,15 +7,17 @@ public class Drone : FlyingEnemy
     public float bobAmplitude = 0.5f; // Amplitude of the bobbing motion
     private bool isMoving = true; // Flag to control movement
     public float lifetime = 4f;
+    public float attackInterval = 2f; // Interval between attacks in seconds
+    public GameObject Projectile;
+    public Transform ProjectilePositioning;
 
     private Vector3 startPosition;
 
     void Start()
     {
         startPosition = transform.position;
-
         Destroy(gameObject, lifetime);
-
+        StartCoroutine(AttackRoutine()); // Start the attack routine
     }
 
     void Update()
@@ -31,15 +33,18 @@ public class Drone : FlyingEnemy
 
     public override void Attack()
     {
-        // Implement Drone attack logic if needed
+        // Implement Drone attack logic
+        if (Projectile != null)
+        {
+            Instantiate(Projectile, transform.position, ProjectilePositioning.rotation);
+            Debug.Log("Drone attacked!");
+        }
     }
 
     public override void Move()
     {
         // Move to the left (negative X direction)
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-
-        
+        transform.Translate(Vector3.back * speed * Time.deltaTime);
     }
 
     public void PushBack(Vector3 direction, float force)
@@ -72,5 +77,14 @@ public class Drone : FlyingEnemy
             rb.angularVelocity = Vector3.zero; // Reset angular velocity
         }
         isMoving = true; // Resume moving
+    }
+
+    private IEnumerator AttackRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(attackInterval); // Wait for the attack interval
+            Attack(); // Perform the attack
+        }
     }
 }
