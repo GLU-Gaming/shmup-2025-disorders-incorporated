@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Health healthScript;
     private Gamemanager gamemanager;
     public GameObject Manager;
+    private bool Moving;
 
     [Header("ForceField:")]
     [SerializeField] private GameObject ForceField;
@@ -203,15 +204,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-   
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && !ForceFieldActive)
         {
             healthScript.TakeDamage(10); // 10 dmg
             collision.gameObject.SetActive(false);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy") && ForceFieldActive)
+        {
+            // Stop the movement of the enemy it's colliding with
+            Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
+            if (enemyRb != null)
+            {
+                enemyRb.linearVelocity = Vector3.zero;
+                enemyRb.angularVelocity = Vector3.zero;
+            }
         }
     }
 }

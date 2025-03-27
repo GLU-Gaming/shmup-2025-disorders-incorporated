@@ -6,12 +6,16 @@ public class Drone : FlyingEnemy
     public float bobFrequency = 1f; // Frequency of the bobbing motion
     public float bobAmplitude = 0.5f; // Amplitude of the bobbing motion
     private bool isMoving = true; // Flag to control movement
+    public float lifetime = 4f;
 
     private Vector3 startPosition;
 
     void Start()
     {
         startPosition = transform.position;
+
+        Destroy(gameObject, lifetime);
+
     }
 
     void Update()
