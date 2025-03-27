@@ -1774,10 +1774,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1567273862419878214, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f05b9720614170448c246db4c7099d9, type: 2}
     - target: {fileID: 2151377688607037225, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
       propertyPath: Manager
       value: 
       objectReference: {fileID: 436998241}
+    - target: {fileID: 2651398629782663689, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284554477585462050, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284554477585462050, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284554477585462050, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139998821160398884, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139998821160398884, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.217
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173114807861137034, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 61501ad8b977e1d49bf7354a8b60b815, type: 2}
     - target: {fileID: 4799939859002319891, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.87
@@ -1830,6 +1862,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 87d5414cfc9fe0e4da16f57acd3232e0, type: 2}
+    - target: {fileID: 9072902928670121090, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
