@@ -209,7 +209,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && !ForceFieldActive)
         {
             healthScript.TakeDamage(10); // 10 dmg
-            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.CompareTag("Enemy") && ForceFieldActive)
