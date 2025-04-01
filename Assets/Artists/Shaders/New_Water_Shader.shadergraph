@@ -1206,7 +1206,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Scale",
     "m_StageCapability": 3,
-    "m_Value": 20.0,
+    "m_Value": 2.0,
     "m_DefaultValue": 10.0,
     "m_Labels": []
 }
@@ -1387,7 +1387,7 @@
     "m_Title": "Water Displacement",
     "m_Position": {
         "x": -1833.3333740234375,
-        "y": -915.3333129882813
+        "y": -915.333251953125
     }
 }
 
@@ -1550,8 +1550,8 @@
     "m_ObjectId": "10512dfeb69044bdaa245513e6b412d1",
     "m_Title": "Water Depth",
     "m_Position": {
-        "x": -2829.3330078125,
-        "y": 1294.000244140625
+        "x": -2829.333251953125,
+        "y": 1293.9998779296875
     }
 }
 
@@ -1902,7 +1902,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"2ed3d41b7c655bf4daa77f71b994f6ed\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -3332,10 +3332,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1235.33349609375,
-            "y": -562.0001220703125,
-            "width": 209.3333740234375,
-            "height": 328.00006103515627
+            "x": -1300.0001220703125,
+            "y": -578.0,
+            "width": 209.333251953125,
+            "height": 328.0000305175781
         }
     },
     "m_Slots": [
@@ -3443,9 +3443,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -394.666748046875,
-            "y": -538.0,
-            "width": 209.333251953125,
+            "x": -382.66668701171877,
+            "y": -577.9999389648438,
+            "width": 209.33335876464845,
             "height": 351.99993896484377
         }
     },
@@ -3981,8 +3981,8 @@
     "m_ObjectId": "7760647150be4627903f97061a2e7dbb",
     "m_Title": "Water Color",
     "m_Position": {
-        "x": 578.6666259765625,
-        "y": 1316.0001220703125
+        "x": 578.666748046875,
+        "y": 1315.9998779296875
     }
 }
 
@@ -4145,7 +4145,7 @@
         "m_SerializableColors": []
     },
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"11154d936b05e66498f68fa178c5cfbb\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     }
 }
@@ -6084,7 +6084,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"2ed3d41b7c655bf4daa77f71b994f6ed\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -6257,7 +6257,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":8400000,\"guid\":\"4ae8ae7350b67b44785d874c413a2e03\",\"type\":2}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -6504,7 +6504,7 @@
     "m_Title": "Water Normals",
     "m_Position": {
         "x": -2790.666748046875,
-        "y": 88.66663360595703
+        "y": 88.66668701171875
     }
 }
 
