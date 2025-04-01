@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
 
         if (gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Gameover");
 
         }
 
