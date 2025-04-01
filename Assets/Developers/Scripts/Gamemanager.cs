@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -19,12 +20,7 @@ public class Gamemanager : MonoBehaviour
     private int highscore;
     private int waveCount;
 
-    public GameObject enemyPrefab;
-    public float spawnDistance = 10f; // Distance in front of the player to spawn enemies
-    public float spawnAmount;
-    public float spawnDelay;
-    public float minY = -11f; // Minimum Y value for spawning
-    public float maxY = 8f; // Maximum Y value for spawning
+    public List<WaveConfiguration> waveConfigurations;
 
     private void Start()
     {
@@ -99,22 +95,32 @@ public class Gamemanager : MonoBehaviour
             yield return new WaitForSeconds(5); // Wait for 5 seconds before starting the next wave
             waveCount++;
             UpdateWaveUI();
-            StartCoroutine(SpawnEnemies());
+            if (waveCount <= waveConfigurations.Count)
+            {
+                StartCoroutine(SpawnEnemies(waveConfigurations[waveCount - 1]));
+            }
+            else
+            {
+                Debug.LogWarning("No more wave configurations available.");
+            }
         }
     }
 
-    private IEnumerator SpawnEnemies()
+    private IEnumerator SpawnEnemies(WaveConfiguration waveConfig)
     {
-        for (int i = 0; i < spawnAmount; i++) // Spawn 5 enemies per wave
+        foreach (var config in waveConfig.enemyConfigurations)
         {
-            Vector3 spawnPosition = Player.transform.position + Player.transform.forward * spawnDistance;
-            spawnPosition.y = Random.Range(minY, maxY);
+            for (int i = 0; i < config.spawnAmount; i++)
+            {
+                Vector3 spawnPosition = Player.transform.position + Player.transform.forward * config.spawnDistance;
+                spawnPosition.y = Random.Range(config.minY, config.maxY);
 
-            // Create a rotation with 90 degrees on the X and Y axes
-            Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
+                // Create a rotation with 90 degrees on the X and Y axes
+                Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
 
-            Instantiate(enemyPrefab, spawnPosition, spawnRotation);
-            yield return new WaitForSeconds(spawnDelay); // Wait for 1 second before spawning the next enemy
+                Instantiate(config.enemyPrefab, spawnPosition, spawnRotation);
+                yield return new WaitForSeconds(config.spawnDelay); // Wait for the specified delay before spawning the next enemy
+            }
         }
     }
 }

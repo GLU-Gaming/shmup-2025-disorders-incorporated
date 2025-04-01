@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee181a0e6bf39547813d272b075e33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 450
+  maxHealth: 300
   currentHealth: 0
   healthbarFill: {fileID: 6357291385320141905}
 --- !u!114 &1544096817637684003
@@ -405,11 +405,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  speed: 3.5
+  speed: 1.5
   animator: {fileID: 8690304261972596730}
   enemyPrefab: {fileID: 3304578508746871829, guid: 16c01302a8b9b93458de6f497ccf1592, type: 3}
-  summonInterval: 2
-  numberOfEnemiesToSummon: 3
+  summonInterval: 5
+  numberOfEnemiesToSummon: 2
   summonRadius: 2
   spawnOffsetZ: 0
   minSpawnY: -5
