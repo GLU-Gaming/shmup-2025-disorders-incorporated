@@ -3136,6 +3136,18 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2361657437429963735, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361657437429963735, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a84b2092866653f4eae98aae1e73acab, type: 2}
+    - target: {fileID: 2361657437429963735, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a84b2092866653f4eae98aae1e73acab, type: 2}
     - target: {fileID: 3429595819449751475, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
       propertyPath: healthbarFill
       value: 
