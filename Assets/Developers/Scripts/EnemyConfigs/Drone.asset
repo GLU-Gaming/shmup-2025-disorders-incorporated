@@ -16,5 +16,5 @@ MonoBehaviour:
   spawnDistance: -50
   spawnAmount: 3
   spawnDelay: 1
-  minY: -11
-  maxY: 8
+  minY: 1
+  maxY: 10

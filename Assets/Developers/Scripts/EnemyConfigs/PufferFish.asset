@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c40c80a5d546a46ba4c8b74edd36d8, type: 3}
   m_Name: PufferFish
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  spawnDistance: 10
-  spawnAmount: 5
-  spawnDelay: 1
+  enemyPrefab: {fileID: 2872664276448434477, guid: cd1f1e02b3203c24fb6cba65eef0aa23, type: 3}
+  spawnDistance: -40
+  spawnAmount: 1
+  spawnDelay: 3
   minY: -11
-  maxY: 8
+  maxY: 1

@@ -115,7 +115,7 @@ public class Gamemanager : MonoBehaviour
                 Vector3 spawnPosition = Player.transform.position + Player.transform.forward * config.spawnDistance;
                 spawnPosition.y = Random.Range(config.minY, config.maxY);
 
-                // Create a rotation with 90 degrees on the X and Y axes
+                
                 Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
 
                 Instantiate(config.enemyPrefab, spawnPosition, spawnRotation);

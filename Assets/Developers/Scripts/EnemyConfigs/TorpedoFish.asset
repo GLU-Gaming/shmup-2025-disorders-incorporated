@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c40c80a5d546a46ba4c8b74edd36d8, type: 3}
   m_Name: TorpedoFish
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  spawnDistance: 10
-  spawnAmount: 5
+  enemyPrefab: {fileID: 6217162231938539209, guid: 24985dc4ba1c18f45bab36ebf39f9708, type: 3}
+  spawnDistance: -50
+  spawnAmount: 3
   spawnDelay: 1
   minY: -11
-  maxY: 8
+  maxY: 1

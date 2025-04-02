@@ -11,27 +11,12 @@ public class MotherShip : FlyingEnemy
     public float spawnOffsetZ = 0f; // Z position to keep constant
     public float minSpawnY = -5f; // Minimum Y value for spawning
     public float maxSpawnY = -1f; // Maximum Y value for spawning
-    private bool isMoving = true; // Flag to control movement
-    public float bobFrequency = 1f; // Frequency of the bobbing motion
-    public float bobAmplitude = 0.5f; // Amplitude of the bobbing motion
-
     private bool isAttacking = false;
-    private Vector3 startPosition;
 
-
-    public void Start()
+    protected override void Start()
     {
+        base.Start();
         StartCoroutine(RepeatAttackRoutine());
-        startPosition = transform.position;
-
-    }
-
-    void Update()
-    {
-        if (isMoving)
-        {
-            Move();
-        }
     }
 
     public override void Attack()
@@ -47,8 +32,6 @@ public class MotherShip : FlyingEnemy
     {
         // Move backward (negative Z direction)
         transform.Translate(Vector3.right * speed * Time.deltaTime);
-        float bobbing = Mathf.Sin(Time.time * bobFrequency) * bobAmplitude;
-        transform.position = new Vector3(transform.position.x, startPosition.y + bobbing, transform.position.z);
     }
 
     private IEnumerator RepeatAttackRoutine()
