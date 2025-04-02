@@ -1,4 +1,6 @@
-public class WaterEnemy : AbstractEnemy
+using UnityEngine;
+
+public abstract class WaterEnemy : AbstractEnemy
 {
     public float swimSpeed;
 

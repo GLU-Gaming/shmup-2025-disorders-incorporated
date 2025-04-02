@@ -1,12 +1,26 @@
-public class FlyingEnemy : AbstractEnemy
+using UnityEngine;
+using System.Collections;
+
+public abstract class FlyingEnemy : AbstractEnemy
 {
-    public override void Attack()
+    public float lifetime = 4f;
+    public float attackInterval = 2f; // Interval between attacks in seconds
+    public GameObject Projectile;
+    public Transform ProjectilePositioning;
+
+    protected override void Start()
     {
-        // Implement flying enemy attack logic
+        base.Start();
+        Destroy(gameObject, lifetime);
+        StartCoroutine(AttackRoutine()); // Start the attack routine
     }
 
-    public override void Move()
+    private IEnumerator AttackRoutine()
     {
-        // Implement flying enemy movement logic
+        while (true)
+        {
+            yield return new WaitForSeconds(attackInterval); // Wait for the attack interval
+            Attack(); // Perform the attack
+        }
     }
 }
