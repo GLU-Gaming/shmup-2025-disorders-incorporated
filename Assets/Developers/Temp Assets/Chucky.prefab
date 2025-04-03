@@ -412,6 +412,8 @@ MonoBehaviour:
   speed: 5
   bobFrequency: 2
   bobAmplitude: 1
+  resetDistance: 50
+  resetOffset: 70
   lifetime: 10
   attackInterval: 3
   Projectile: {fileID: 8304511313351004809, guid: 3e61a530d1b9b1246980a9e4b7000a66, type: 3}

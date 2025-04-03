@@ -7,16 +7,12 @@ public class PufferFish : WaterEnemy
     public float explosionForce = 700f;
     public GameObject explosionEffect; // Optional: Reference to an explosion effect prefab
 
-    public override void Attack()
+    protected override void Start()
     {
-        // PufferFish-specific attack logic (if any)
-    }
+        Quaternion spawnRotation = Quaternion.Euler(0, 180, 0);
 
-    public override void Move()
-    {
-        // PufferFish-specific movement logic (if any)
+        gameObject.transform.rotation = spawnRotation;
     }
-
     private void OnDestroy()
     {
         Explode();

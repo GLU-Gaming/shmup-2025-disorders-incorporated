@@ -3,23 +3,30 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     private Gamemanager gamemanager;
-    public GameObject Manager;
-
     private PlayerMovement playerMovement;
-    public GameObject Player;
 
     private void Start()
     {
-        gamemanager = Manager.GetComponent<Gamemanager>();
+        // Find the GameManager object in the scene
+        gamemanager = FindAnyObjectByType<Gamemanager>();
         if (gamemanager == null)
         {
-            Debug.LogError("Gamemanager component not found");
+            Debug.LogError("Gamemanager component not found in the scene.");
         }
 
-        playerMovement = Player.GetComponent<PlayerMovement>();
-        if (playerMovement == null)
+        // Find the Player object in the scene
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
         {
-            Debug.LogError("PlayerMovement component not found on the player.");
+            playerMovement = playerObject.GetComponent<PlayerMovement>();
+            if (playerMovement == null)
+            {
+                Debug.LogError("PlayerMovement component not found on the Player object.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Player object not found in the scene.");
         }
     }
 
@@ -29,7 +36,7 @@ public class PickUp : MonoBehaviour
         {
             playerMovement.ForceFieldCharge = gamemanager.maxForceCharge; // Correctly set the ForceFieldCharge
             gamemanager.UpdateForceChargeUI(playerMovement.ForceFieldCharge); // Update the UI
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); // Deactivate the pickup object
         }
     }
 }

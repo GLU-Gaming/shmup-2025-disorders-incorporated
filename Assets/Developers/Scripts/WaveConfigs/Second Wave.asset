@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49c40c80a5d546a46ba4c8b74edd36d8, type: 3}
-  m_Name: PufferFish
+  m_Script: {fileID: 11500000, guid: 1d0b53f13eb137942adb9fd321ba6945, type: 3}
+  m_Name: Second Wave
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2872664276448434477, guid: cd1f1e02b3203c24fb6cba65eef0aa23, type: 3}
-  spawnDistance: -40
-  spawnAmount: 1
-  spawnDelay: 3
-  minY: -11
-  maxY: 0
+  enemyConfigurations:
+  - {fileID: 11400000, guid: 1172caa683224384b92b260aa70a8f91, type: 2}

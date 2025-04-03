@@ -10,9 +10,14 @@ public abstract class AbstractEnemy : MonoBehaviour
     protected bool isMoving = true; // Flag to control movement
     protected Vector3 startPosition;
 
+    private GameObject Player;
+    public float resetDistance = 50f; // Distance at which the enemy should reset
+    public float resetOffset = 70f; // Offset to reset the enemy's position
+
     protected virtual void Start()
     {
         startPosition = transform.position;
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     protected virtual void Update()
@@ -24,10 +29,24 @@ public abstract class AbstractEnemy : MonoBehaviour
         // Bob up and down
         float bobbing = Mathf.Sin(Time.time * bobFrequency) * bobAmplitude;
         transform.position = new Vector3(transform.position.x, startPosition.y + bobbing, transform.position.z);
+        CheckAndResetPosition();
     }
 
     public abstract void Attack();
     public abstract void Move();
+
+    protected virtual void CheckAndResetPosition()
+    {
+        if (Player != null && transform.position.x < Player.transform.position.x - resetDistance)
+        {
+            ResetPosition();
+        }
+    }
+
+    protected virtual void ResetPosition()
+    {
+        transform.position = new Vector3(Player.transform.position.x + resetOffset, startPosition.y, transform.position.z);
+    }
 
     public virtual void PushBack(Vector3 direction, float force)
     {
