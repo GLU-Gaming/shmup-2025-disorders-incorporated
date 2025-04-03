@@ -21,6 +21,7 @@ public class Gamemanager : MonoBehaviour
     private int waveCount;
 
     public List<WaveConfiguration> waveConfigurations;
+    public float enemyDetectionRadius = 10f; // Radius to check for enemies
 
     private void Start()
     {
@@ -92,18 +93,36 @@ public class Gamemanager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5); // Wait for 5 seconds before starting the next wave
-            waveCount++;
-            UpdateWaveUI();
-            if (waveCount <= waveConfigurations.Count)
+            yield return new WaitForSeconds(5); // Wait for 5 seconds before checking for the next wave
+
+            // Check if there are no enemies within the detection radius
+            if (!AreEnemiesInRange())
             {
-                StartCoroutine(SpawnEnemies(waveConfigurations[waveCount - 1]));
-            }
-            else
-            {
-                Debug.LogWarning("No more wave configurations available.");
+                waveCount++;
+                UpdateWaveUI();
+                if (waveCount <= waveConfigurations.Count)
+                {
+                    StartCoroutine(SpawnEnemies(waveConfigurations[waveCount - 1]));
+                }
+                else
+                {
+                    Debug.LogWarning("No more wave configurations available.");
+                }
             }
         }
+    }
+
+    private bool AreEnemiesInRange()
+    {
+        Collider[] colliders = Physics.OverlapSphere(Player.transform.position, enemyDetectionRadius);
+        foreach (Collider nearbyObject in colliders)
+        {
+            if (nearbyObject.CompareTag("Enemy"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private IEnumerator SpawnEnemies(WaveConfiguration waveConfig)
@@ -115,7 +134,6 @@ public class Gamemanager : MonoBehaviour
                 Vector3 spawnPosition = Player.transform.position + Player.transform.forward * config.spawnDistance;
                 spawnPosition.y = Random.Range(config.minY, config.maxY);
 
-                
                 Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
 
                 Instantiate(config.enemyPrefab, spawnPosition, spawnRotation);
