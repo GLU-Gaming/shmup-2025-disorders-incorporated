@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,11 +7,7 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public Image healthbarFill;
-    private LevelLoader levelLoader;
-
     private Gamemanager gamemanager;
-  
-
 
     void Start()
     {
@@ -44,8 +39,9 @@ public class Health : MonoBehaviour
         {
             healthbarFill.fillAmount = currentHealth / maxHealth;
             Debug.Log("Health Bar Updated: " + healthbarFill.fillAmount);
-            if(currentHealth == 0) {
-               Death(); 
+            if (currentHealth == 0)
+            {
+                Death();
             }
         }
     }
@@ -59,12 +55,14 @@ public class Health : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Gameover");
-
         }
 
         if (gameObject.CompareTag("Enemy"))
         {
-            gamemanager.IncreaseScore(15);
+            if (gamemanager != null)
+            {
+                gamemanager.IncreaseScore(15);
+            }
         }
     }
 }

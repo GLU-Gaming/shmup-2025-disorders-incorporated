@@ -311,7 +311,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec4b4a5bbb62eb14b90ab44fe3ce5084, type: 2}
+  - {fileID: 2100000, guid: 0a9c523001e49b84494c2b96d866fc58, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -414,7 +414,6 @@ MonoBehaviour:
   bobAmplitude: 1
   resetDistance: 50
   resetOffset: 70
-  lifetime: 10
   attackInterval: 3
   Projectile: {fileID: 8304511313351004809, guid: 3e61a530d1b9b1246980a9e4b7000a66, type: 3}
   ProjectilePositioning: {fileID: 4241038143024913214}

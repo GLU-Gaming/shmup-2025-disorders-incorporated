@@ -5,6 +5,9 @@ public class PickUp : MonoBehaviour
     private Gamemanager gamemanager;
     private PlayerMovement playerMovement;
 
+    public enum RotationAxis { Hp, Shield, Fire } // Enum for axis selection
+    public RotationAxis rotationAxis = RotationAxis.Hp; // Default to Hp mode
+
     private void Start()
     {
         // Find the GameManager object in the scene
@@ -34,8 +37,29 @@ public class PickUp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerMovement.ForceFieldCharge = gamemanager.maxForceCharge; // Correctly set the ForceFieldCharge
-            gamemanager.UpdateForceChargeUI(playerMovement.ForceFieldCharge); // Update the UI
+            switch (rotationAxis)
+            {
+                case RotationAxis.Hp:
+                    Health health = other.GetComponent<Health>();
+                    if (health != null)
+                    {
+                        health.RestoreHealth(100f);
+                    }
+                    break;
+                case RotationAxis.Shield:
+                    if (playerMovement != null)
+                    {
+                        playerMovement.ForceFieldCharge = gamemanager.maxForceCharge; // Fully charge the shield
+                        gamemanager.UpdateForceChargeUI(playerMovement.ForceFieldCharge); // Update the UI
+                    }
+                    break;
+                case RotationAxis.Fire:
+                    if (playerMovement != null)
+                    {
+                        playerMovement.canShootFlames = true;
+                    }
+                    break;
+            }
             gameObject.SetActive(false); // Deactivate the pickup object
         }
     }
