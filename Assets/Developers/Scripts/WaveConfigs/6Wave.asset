@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0b53f13eb137942adb9fd321ba6945, type: 3}
+  m_Name: 6Wave
+  m_EditorClassIdentifier: 
+  enemyConfigurations:
+  - {fileID: 11400000, guid: 03a5336a561ba3f49baf00cda75d4654, type: 2}
+  - {fileID: 11400000, guid: cb15617a4d7b1574ca1418da5a456578, type: 2}
+  - {fileID: 11400000, guid: dec3d7205e4d7f54e92f1bffb2704aca, type: 2}
+  - {fileID: 11400000, guid: 489b661a0edfcde46a57a63960bb1478, type: 2}
+  - {fileID: 11400000, guid: 872d1692a0c5e2f49b591cbbb7237390, type: 2}

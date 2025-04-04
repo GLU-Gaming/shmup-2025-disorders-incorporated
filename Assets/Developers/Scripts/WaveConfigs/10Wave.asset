@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d0b53f13eb137942adb9fd321ba6945, type: 3}
-  m_Name: Second Wave
+  m_Name: 10Wave
   m_EditorClassIdentifier: 
   enemyConfigurations:
-  - {fileID: 11400000, guid: 1172caa683224384b92b260aa70a8f91, type: 2}
+  - {fileID: 11400000, guid: 03a5336a561ba3f49baf00cda75d4654, type: 2}
+  - {fileID: 11400000, guid: 261c3f5971b0dd74f8b322af363503ce, type: 2}
+  - {fileID: 11400000, guid: 9103e16220c38b94c83a7c81a939a421, type: 2}
+  - {fileID: 11400000, guid: 605bc7025fe61a54f9a02c167a75cfe0, type: 2}

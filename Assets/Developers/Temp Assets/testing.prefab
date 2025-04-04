@@ -181,7 +181,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 0.801735, y: 0.801735, z: 0.801735}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6482725961870059572}
@@ -206,7 +206,6 @@ MonoBehaviour:
   bobAmplitude: 0.5
   resetDistance: 50
   resetOffset: 70
-  lifetime: 8
   attackInterval: 2
   Projectile: {fileID: 6876687979794865257, guid: b74b8c3da76c40f4b9cf2a3f960164ca, type: 3}
   ProjectilePositioning: {fileID: 3775403557663900056, guid: b74b8c3da76c40f4b9cf2a3f960164ca, type: 3}

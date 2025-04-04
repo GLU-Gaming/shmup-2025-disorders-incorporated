@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49c40c80a5d546a46ba4c8b74edd36d8, type: 3}
-  m_Name: MotherShip
+  m_Name: PufferFish_3
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3427437180881777394, guid: d237054c9e737de49bc121002fc2ba3a, type: 3}
-  spawnDistance: -50
-  spawnAmount: 1
-  spawnDelay: 4
-  minY: 5
-  maxY: 8
+  enemyPrefab: {fileID: 2872664276448434477, guid: cd1f1e02b3203c24fb6cba65eef0aa23, type: 3}
+  spawnDistance: -40
+  spawnAmount: 3
+  spawnDelay: 3
+  minY: -11
+  maxY: 0

@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee181a0e6bf39547813d272b075e33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 45
+  maxHealth: 10
   currentHealth: 0
   healthbarFill: {fileID: 3696657330217536702}
 --- !u!54 &5402608812106381711
@@ -427,8 +427,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.012349953
-  m_Center: {x: 0.00075142767, y: 0.000491643, z: -0.0010430567}
+  m_Radius: 0.018332137
+  m_Center: {x: -0.015819449, y: 0.0004916429, z: -0.0010430566}
 --- !u!114 &388420708221542558
 MonoBehaviour:
   m_ObjectHideFlags: 0
