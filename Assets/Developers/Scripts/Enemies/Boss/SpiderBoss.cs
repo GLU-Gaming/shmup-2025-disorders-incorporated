@@ -7,11 +7,14 @@ public class SpiderBoss : MonoBehaviour
     public Transform[] minigunBarrels; // The transforms of the minigun barrels
     public Transform[] firePoints; // Array of fire points
     public Transform[] eyeFirePoints; // Array of eye fire points
+    public Transform[] legs; // Array of leg transforms
     public float spinSpeed = 100f; // Speed at which the minigun spins
     public float fireRate = 0.1f; // Time between shots
     public bool isAttackingWithEyes = false; // Boolean to trigger the eye attack
+    public bool isAttackingWithLegs = false; // Boolean to trigger the leg attack
 
     private float nextFireTime = 0f;
+    private int currentLegIndex = 0; // Index of the leg to shoot next
 
     private void Update()
     {
@@ -33,6 +36,13 @@ public class SpiderBoss : MonoBehaviour
             isAttackingWithEyes = false;
             ShootEyes();
         }
+
+        // Check if the leg attack is triggered
+        if (isAttackingWithLegs)
+        {
+            isAttackingWithLegs = false;
+            ShootLeg();
+        }
     }
 
     private void Shoot()
@@ -47,9 +57,23 @@ public class SpiderBoss : MonoBehaviour
     {
         foreach (Transform eyeFirePoint in eyeFirePoints)
         {
-            GameObject projectile = Instantiate(homingProjectilePrefab, eyeFirePoint.position, eyeFirePoint.rotation);
-            HomingProjectile homingProjectile = projectile.GetComponent<HomingProjectile>();
-            homingProjectile.player = GameObject.FindGameObjectWithTag("Player").transform;
+            Instantiate(homingProjectilePrefab, eyeFirePoint.position, eyeFirePoint.rotation);
+        }
+    }
+
+    private void ShootLeg()
+    {
+        if (legs.Length > 0)
+        {
+            Transform legToShoot = legs[currentLegIndex];
+            currentLegIndex = (currentLegIndex + 1) % legs.Length;
+            legToShoot.parent = null;
+
+            LegProjectile legProjectile = legToShoot.gameObject.AddComponent<LegProjectile>();
+            legProjectile.Initialize();
+            Debug.Log(currentLegIndex);
+            // Set the isLeftLeg variable based on the leg index
+            legProjectile.isLeftLeg = (currentLegIndex <=4);
         }
     }
 }

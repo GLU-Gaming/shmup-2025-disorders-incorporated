@@ -5,7 +5,7 @@ public class HomingProjectile : MonoBehaviour
     public float speed = 5f; // Speed of the projectile
     public float homingDuration = 2f; // Duration for which the projectile homes in on the player
     public float returnDuration = 2f; // Duration for which the projectile returns to its original position
-    public Transform player; // Reference to the player's transform
+    private Transform player; // Reference to the player's transform
     private Vector3 originalPosition; // Original position of the projectile
     private float homingTimer; // Timer for the homing phase
     private bool isReturning = false; // Flag to indicate if the projectile is returning
@@ -14,6 +14,7 @@ public class HomingProjectile : MonoBehaviour
     {
         originalPosition = transform.position;
         homingTimer = homingDuration;
+        FindPlayer();
     }
 
     private void Update()
@@ -25,6 +26,19 @@ public class HomingProjectile : MonoBehaviour
         else
         {
             ReturnToOriginalPosition();
+        }
+    }
+
+    private void FindPlayer()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
+        else
+        {
+            Debug.LogError("Player not found! Make sure the player GameObject is tagged with 'Player'.");
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6d420e72f8cdf41438b85203234e4229
+guid: 92e1b9e863df8344687e34e9c30df312
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scherm score_0
+      name: bar_player_ui_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 790
-        height: 620
+        width: 510
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4695d4432f76d694fb956820dd3beefe
-      internalID: 267664256
+      spriteID: d60be662afaa2d54aaee99d6ab74ce18
+      internalID: 618883427
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1108c61ddc4c7f64fa5f1deb9acfc0bb
+    spriteID: 17f7562e4bce5474293adc30b1f73549
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      scherm score_0: 267664256
+      bar_player_ui_0: 618883427
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
