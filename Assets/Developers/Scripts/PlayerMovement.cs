@@ -208,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && !ForceFieldActive)
         {
-            healthScript.TakeDamage(10); // 10 dmg
+            healthScript.TakeDamage(25f); // 25 dmg
             Destroy(collision.gameObject);
         }
 
@@ -221,6 +221,16 @@ public class PlayerMovement : MonoBehaviour
                 enemyRb.linearVelocity = Vector3.zero;
                 enemyRb.angularVelocity = Vector3.zero;
             }
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy") && !ForceFieldActive)
+        {
+            healthScript.TakeDamage(25f); // 25 dmg
+            Destroy(other.gameObject);
         }
     }
 }

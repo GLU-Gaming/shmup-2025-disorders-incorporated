@@ -415,7 +415,7 @@ MonoBehaviour:
   explosionRadius: 7
   explosionDamage: 50
   explosionForce: 50000
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 7361914076166311135, guid: 3f2be8fa53084d145bafef7734258ca0, type: 3}
 --- !u!114 &1268709425672577476
 MonoBehaviour:
   m_ObjectHideFlags: 0
