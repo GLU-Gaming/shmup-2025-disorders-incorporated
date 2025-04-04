@@ -1,31 +1,39 @@
 using UnityEngine;
 
-public class HomingProjectile : MonoBehaviour
+public class EyeProjectile : MonoBehaviour
 {
-    public float speed = 5f; // Speed of the projectile
-    public float homingDuration = 2f; // Duration for which the projectile homes in on the player
+    public float speed = 15f; // Speed of the projectile
+    public float homingDuration = 1f; // Duration for which the projectile homes in on the player
     public float returnDuration = 2f; // Duration for which the projectile returns to its original position
     private Transform player; // Reference to the player's transform
     private Vector3 originalPosition; // Original position of the projectile
     private float homingTimer; // Timer for the homing phase
     private bool isReturning = false; // Flag to indicate if the projectile is returning
+    private bool isActive = false; // Flag to indicate if the projectile is active
+    public float damageCount = 5f;
+
+
 
     private void Start()
     {
         originalPosition = transform.position;
         homingTimer = homingDuration;
         FindPlayer();
+        Deactivate(); // Deactivate the projectile initially
     }
 
     private void Update()
     {
-        if (!isReturning)
+        if (isActive)
         {
-            Homing();
-        }
-        else
-        {
-            ReturnToOriginalPosition();
+            if (!isReturning)
+            {
+                Homing();
+            }
+            else
+            {
+                ReturnToOriginalPosition();
+            }
         }
     }
 
@@ -48,7 +56,6 @@ public class HomingProjectile : MonoBehaviour
         {
             Vector3 direction = (player.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
-            transform.rotation = Quaternion.LookRotation(direction); // Rotate towards the player
             homingTimer -= Time.deltaTime;
 
             if (homingTimer <= 0)
@@ -64,7 +71,29 @@ public class HomingProjectile : MonoBehaviour
 
         if (Vector3.Distance(transform.position, originalPosition) < 0.1f)
         {
-            Destroy(gameObject);
+            Deactivate(); // Deactivate the projectile instead of destroying it
+        }
+    }
+
+    public void Activate()
+    {
+        isActive = true;
+        isReturning = false;
+        homingTimer = homingDuration;
+        transform.position = originalPosition; // Reset position
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.GetComponent<Health>().TakeDamage(damageCount);
         }
     }
 }
