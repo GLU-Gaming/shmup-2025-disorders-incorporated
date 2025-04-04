@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 60999934bec04554aaac0e2d9d44c76e
+guid: be44db86162c79544903ca7d7d64a8f1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Damage_Viginette_0
+      name: trots3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
+        width: 1980
         height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b09fbdc339a1e934f8a35da067259b76
-      internalID: -1277946127
+      spriteID: c1048002fff83b34f84cb539d994d696
+      internalID: 1949177989
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7b98d7d1f9f6baa409e76ab5ca4224ff
+    spriteID: c60b00935ff9b95428131cbbc4f6e66b
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Damage_Viginette_0: -1277946127
+      trots3_0: 1949177989
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

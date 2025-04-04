@@ -3,7 +3,6 @@ using UnityEngine;
 public class SpiderBoss : MonoBehaviour
 {
     public GameObject bulletPrefab; // The bullet prefab to instantiate
-    public GameObject homingProjectilePrefab; // The homing projectile prefab to instantiate
     public Transform[] minigunBarrels; // The transforms of the minigun barrels
     public Transform[] firePoints; // Array of fire points
     public Transform[] eyeFirePoints; // Array of eye fire points
@@ -57,7 +56,15 @@ public class SpiderBoss : MonoBehaviour
     {
         foreach (Transform eyeFirePoint in eyeFirePoints)
         {
-            Instantiate(homingProjectilePrefab, eyeFirePoint.position, eyeFirePoint.rotation);
+            EyeProjectile eyeProjectileComponent = eyeFirePoint.GetComponent<EyeProjectile>();
+            if (eyeProjectileComponent != null)
+            {
+                eyeProjectileComponent.Activate(); // Activate the EyeProjectile component
+            }
+            else
+            {
+                Debug.LogError("EyeProjectile component not found on eyeFirePoint.");
+            }
         }
     }
 
@@ -66,14 +73,20 @@ public class SpiderBoss : MonoBehaviour
         if (legs.Length > 0)
         {
             Transform legToShoot = legs[currentLegIndex];
+
+            // Set the isLeftLeg variable based on the current leg index
+            bool isLeftLeg = (currentLegIndex < 4);
+
+            // Increment the leg index for the next shot
             currentLegIndex = (currentLegIndex + 1) % legs.Length;
+
             legToShoot.parent = null;
 
             LegProjectile legProjectile = legToShoot.gameObject.AddComponent<LegProjectile>();
             legProjectile.Initialize();
-            Debug.Log(currentLegIndex);
-            // Set the isLeftLeg variable based on the leg index
-            legProjectile.isLeftLeg = (currentLegIndex <=4);
+            legProjectile.isLeftLeg = isLeftLeg;
+
+            Debug.Log("Shot leg at index: " + (currentLegIndex - 1) % legs.Length);
         }
     }
 }
