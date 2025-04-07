@@ -8,6 +8,7 @@ public class Gamemanager : MonoBehaviour
 {
     private PlayerMovement playerMovement;
     public GameObject Player;
+    public GameObject SpiderBossPrefab; // Prefab for the Spider Boss
 
     public float maxForceCharge = 300;
     public Image ForceFill;
@@ -106,11 +107,31 @@ public class Gamemanager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("No more wave configurations available.");
+                    // Turn off the AutoScroller script
+                    AutoScroller autoScroller = FindFirstObjectByType<AutoScroller>();
+                    if (autoScroller != null)
+                    {
+                        autoScroller.enabled = false;
+                    }
+
+                    // Stop the player's movement on the X-axis
+                    if (playerMovement != null)
+                    {
+                        playerMovement.StopMovementOnXAxis();
+                    }
+
+                    // Summon the Spider Boss
+                    if (SpiderBossPrefab != null)
+                    {
+                        Vector3 spawnPosition = Player.transform.position + new Vector3(25, -2, 0); // Spawn further from the player
+                        Quaternion spawnRotation = Quaternion.Euler(0, -90, 0); // Different rotation
+                        Instantiate(SpiderBossPrefab, spawnPosition, spawnRotation);
+                    }
                 }
             }
         }
     }
+
 
     private bool AreEnemiesInRange()
     {
