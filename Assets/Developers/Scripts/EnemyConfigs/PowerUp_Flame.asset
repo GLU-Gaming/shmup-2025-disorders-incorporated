@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c40c80a5d546a46ba4c8b74edd36d8, type: 3}
   m_Name: PowerUp_Flame
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 744674031350376733, guid: d28f203f65a93a8458d1b4a07837b12c, type: 3}
+  enemyPrefab: {fileID: 8509060106527789027, guid: d5d4710f96b7e164e8b08af99442e513, type: 3}
   spawnDistance: -50
   spawnAmount: 1
   spawnDelay: 0

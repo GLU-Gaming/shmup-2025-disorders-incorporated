@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: rotationAxis
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1212115965267869877, guid: b077286e82c947242bacd64191d829a2, type: 3}
+      propertyPath: rotationSpeed
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6040462845916595287, guid: b077286e82c947242bacd64191d829a2, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -198,6 +202,10 @@ PrefabInstance:
     - target: {fileID: 6934906255915337727, guid: b077286e82c947242bacd64191d829a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142378053297952190, guid: b077286e82c947242bacd64191d829a2, type: 3}
+      propertyPath: m_Range
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

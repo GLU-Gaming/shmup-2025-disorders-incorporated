@@ -5218,7 +5218,7 @@ MonoBehaviour:
   resetOffset: 70
   attackInterval: 3
   Projectile: {fileID: 8304511313351004809, guid: 3e61a530d1b9b1246980a9e4b7000a66, type: 3}
-  ProjectilePositioning: {fileID: 0}
+  ProjectilePositioning: {fileID: 6229628539843308886, guid: 3e61a530d1b9b1246980a9e4b7000a66, type: 3}
 --- !u!1 &6800756144269904932
 GameObject:
   m_ObjectHideFlags: 0

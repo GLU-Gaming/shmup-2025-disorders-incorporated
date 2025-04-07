@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Gamemanager gamemanager;
     public GameObject Manager;
     private bool Moving;
+    private float moveX = 1f; // Default X movement value
 
     [Header("ForceField:")]
     [SerializeField] private GameObject ForceField;
@@ -81,11 +82,15 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovement()
     {
-        float moveX = 1; // X movement is constant to match the auto scrolling effect
         float moveY = Input.GetAxis("Vertical"); // W/S movement for up and down
 
         Vector2 movement = new Vector2(moveX, moveY) * moveSpeed * Time.deltaTime;
         transform.Translate(movement.x, movement.y, 0, Space.World);
+    }
+
+    public void StopMovementOnXAxis()
+    {
+        moveX = 0; // Set the X movement to 0
     }
 
     void HandleShooting()
@@ -224,12 +229,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy") && !ForceFieldActive)
         {
             healthScript.TakeDamage(25f); // 25 dmg
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Legs") && !ForceFieldActive)
+        {
+            healthScript.TakeDamage(15f); // 15 dmg
             Destroy(other.gameObject);
         }
     }
