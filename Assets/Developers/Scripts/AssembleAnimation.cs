@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AssembleAnimation : MonoBehaviour
 {
-    public Transform[] parts; // Array to hold all the parts of the asset
     public float duration = 0.5f; // Duration for the animation
     public float delay = 0.05f; // Delay between batches
     public Vector3 offScreenPosition = new Vector3(-5, 0, 0); // Off-screen position
@@ -13,9 +12,17 @@ public class AssembleAnimation : MonoBehaviour
     private Vector3[] targetPositions; // Array to hold the target positions for each part
     private Vector3[] startPositions; // Array to hold the start positions for each part
     private Quaternion[] originalRotations; // Array to hold the original rotations for each part
+    private Transform[] parts; // Array to hold all the parts of the asset
 
     private void Start()
     {
+        // Get all child objects of the prefab
+        parts = new Transform[transform.childCount];
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            parts[i] = transform.GetChild(i);
+        }
+
         // Initialize the target positions array
         targetPositions = new Vector3[parts.Length];
         startPositions = new Vector3[parts.Length];
@@ -42,9 +49,9 @@ public class AssembleAnimation : MonoBehaviour
             int batchSize = Mathf.Min(partsPerBatch, parts.Length - i);
             for (int j = 0; j < batchSize; j++)
             {
-                StartCoroutine(MoveToPosition(parts[i + j], startPositions[i + j], targetPositions[i + j], originalRotations[i + j], duration, 0));
+                StartCoroutine(MoveToPosition(parts[i + j], startPositions[i + j], targetPositions[i + j], originalRotations[i + j], duration, j * delay));
             }
-            yield return new WaitForSeconds(delay); // Wait before starting the next batch
+            yield return new WaitForSeconds(delay * batchSize); // Wait before starting the next batch
         }
     }
 

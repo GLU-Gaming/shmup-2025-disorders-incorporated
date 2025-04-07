@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   lifetime: 1.5
-  damageCount: 1
+  damageCount: 0.2
   isEnemy: 1
 --- !u!54 &-232871333318012070
 Rigidbody:
