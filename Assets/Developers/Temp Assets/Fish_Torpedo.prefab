@@ -4987,7 +4987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 5
-  damageCount: 20
+  damageCount: 10
   isEnemy: 1
 --- !u!1 &7440026418270401691
 GameObject:

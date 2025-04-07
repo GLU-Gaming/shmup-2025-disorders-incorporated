@@ -17,4 +17,4 @@ MonoBehaviour:
   spawnAmount: 4
   spawnDelay: 2
   minY: -11
-  maxY: 0
+  maxY: -2.7
