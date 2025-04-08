@@ -10148,15 +10148,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.5
+      value: -14.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3283157
+      value: 0.322
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -250.86478
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10387,7 +10387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2a6a5996a54fa47b54b2d5d4b6f0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 40
+  moveSpeed: 10
   Manager: {fileID: 0}
   ForceField: {fileID: 1799103935330419503}
   ForceFieldCharge: 0
@@ -10405,6 +10405,8 @@ MonoBehaviour:
   FlamethrowerPrefab: {fileID: 6772820528849551893}
   flameThrowerFireRate: 3.5
   canShootFlames: 1
+  FlameThrowerCharge: 100
+  flameThrowerDrainRate: 1
   childWithAnimator: {fileID: 3284554477585462050}
 --- !u!114 &3429595819449751475
 MonoBehaviour:
@@ -10418,7 +10420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee181a0e6bf39547813d272b075e33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 250
+  maxHealth: 500
   currentHealth: 0
   healthbarFill: {fileID: 0}
 --- !u!114 &6466176639127329701

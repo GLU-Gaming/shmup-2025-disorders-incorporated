@@ -56,7 +56,7 @@ public class PickUp : MonoBehaviour
                 case RotationAxis.Fire:
                     if (playerMovement != null)
                     {
-                        playerMovement.canShootFlames = true;
+                        playerMovement.FlameThrowerCharge = gamemanager.maxFlameThrowerCharge;  
                     }
                     break;
             }

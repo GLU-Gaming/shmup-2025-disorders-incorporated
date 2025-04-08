@@ -262,6 +262,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: d7e5b3798715186488e22f0d5af59d4a, type: 2}
     - target: {fileID: 8170859478787440260, guid: 96448fb6146812e449ae59adf05df470, type: 3}
+      propertyPath: rotationAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170859478787440260, guid: 96448fb6146812e449ae59adf05df470, type: 3}
       propertyPath: rotationSpeed
       value: 200
       objectReference: {fileID: 0}
