@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    public AudioSource AudioDamageSource;
     public float maxHealth = 100f;
     public float currentHealth;
     public Image healthbarFill;
@@ -24,6 +25,7 @@ public class Health : MonoBehaviour
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthBar();
+        AudioDamageSource.Play();
     }
 
     public void RestoreHealth(float amount)
