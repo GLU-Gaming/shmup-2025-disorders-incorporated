@@ -53,9 +53,12 @@ public class Gamemanager : MonoBehaviour
         StartCoroutine(GameLoop());
     }
 
-    private void Vignitte()
+    public void ActivateVignette(bool active)
     {
-        damageVignite.SetActive(true);        
+        if (damageVignite != null)
+        {
+            damageVignite.SetActive(active);
+        }
     }
 
     public void UpdateForceChargeUI(float currentCharge)

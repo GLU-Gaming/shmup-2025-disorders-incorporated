@@ -9,8 +9,8 @@ public class MotherShip : FlyingEnemy
     public int numberOfEnemiesToSummon = 3; // Number of enemies to summon each time
     public float summonRadius = 2f; // Radius within which enemies will be summoned
     public float spawnOffsetZ = 0f; // Z position to keep constant
-    public float minSpawnY = -5f; // Minimum Y value for spawning
-    public float maxSpawnY = -1f; // Maximum Y value for spawning
+    public float minSpawnYOffset = -2f; // Minimum Y offset for spawning relative to the mother ship
+    public float maxSpawnYOffset = -1f; // Maximum Y offset for spawning relative to the mother ship
     private bool isAttacking = false;
 
     protected override void Start()
@@ -57,7 +57,7 @@ public class MotherShip : FlyingEnemy
         for (int i = 0; i < numberOfEnemiesToSummon; i++)
         {
             Vector3 summonPosition = transform.position;
-            summonPosition.y = Random.Range(minSpawnY, maxSpawnY); // Random Y position within the range
+            summonPosition.y += Random.Range(minSpawnYOffset, maxSpawnYOffset); // Random Y offset relative to the mother ship
             summonPosition.z = spawnOffsetZ; // Keep Z position constant
             summonPosition.x += (i - (numberOfEnemiesToSummon - 1) / 2f) * summonRadius; // Align horizontally
 

@@ -83,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
         HandleShooting();
         HandleShielding();
         HandleFlameThrower();
+
+
     }
 
     void HandleMovement()
@@ -148,6 +150,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 FlamethrowerPrefab.SetActive(true);
                 FlameThrowerActive = true;
+
+                //HIERO
             }
 
             FlameThrowerCharge -= flameThrowerDrainRate * Time.deltaTime;
