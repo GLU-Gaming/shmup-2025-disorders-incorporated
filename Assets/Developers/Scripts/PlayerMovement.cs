@@ -13,12 +13,14 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("ForceField:")]
     [SerializeField] private GameObject ForceField;
+    public AudioSource AudioShieldSource;
     public float ForceFieldCharge;
     private bool ForceFieldActive;
     public float shockwaveRadius = 5f; // Radius of the shockwave
     public float shockwaveForce = 10f; // Force applied to objects
 
     [Header("Base Laser Settings:")]
+    public AudioSource AudioLaserSource;
     public GameObject bulletPrefab;
     public Transform bulletPosition;
     public Transform firePoint;
@@ -34,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canShootTorpedo = true;
 
     [Header("FlameThrower:")]
-    public AudioSource audioSource;
+    public AudioSource AudioSource; 
     public GameObject FlamethrowerPrefab;
     public float flameThrowerFireRate = 3;
     private float nextFlameThrowerFireTime = 0f;
@@ -119,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, bulletPosition.rotation); // Bullet is shot at set bullet point
+        AudioLaserSource.Play();
     }
 
     IEnumerator DelayedShootTorpedo()
@@ -151,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 FlamethrowerPrefab.SetActive(true);
                 FlameThrowerActive = true;
-                audioSource.Play();
+                AudioSource.Play();
 
             }
 
@@ -171,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
         {
             FlamethrowerPrefab.SetActive(false);
             FlameThrowerActive = false;
-            audioSource.Stop();
+            AudioSource.Stop();
         }
     }
 
@@ -185,6 +188,7 @@ public class PlayerMovement : MonoBehaviour
         {
             ForceField.gameObject.SetActive(false);
             ForceFieldActive = false;
+            AudioShieldSource.Stop();
         }
     }
 
@@ -194,6 +198,7 @@ public class PlayerMovement : MonoBehaviour
         {
             ForceField.gameObject.SetActive(true);
             ForceFieldActive = true;
+            AudioShieldSource.Play();
         }
 
         if (ForceFieldCharge > 0)
