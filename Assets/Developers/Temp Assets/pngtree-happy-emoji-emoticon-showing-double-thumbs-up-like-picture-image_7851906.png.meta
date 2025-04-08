@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a44db5ad0cada7b45b83efa7495a5e93
+guid: f97c9e86c094f664f95e736fbe5c5abe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: complete_0
+      name: pngtree-happy-emoji-emoticon-showing-double-thumbs-up-like-picture-image_7851906_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 7
         y: 0
-        width: 781
-        height: 178
+        width: 1186
+        height: 735
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9366dd7175853b4589675b4be042e07
-      internalID: 1475567256
+      spriteID: f8d73ca75189a534eab4051a1bdd1cf5
+      internalID: 1957646849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-happy-emoji-emoticon-showing-double-thumbs-up-like-picture-image_7851906_1
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 0
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d29b9825b0b8f924885346dfe3b0f8c4
+      internalID: -990351340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-happy-emoji-emoticon-showing-double-thumbs-up-like-picture-image_7851906_2
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 0
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0c96724aa080c447baa29ff359b8ab3
+      internalID: 875365580
       vertices: []
       indices: 
       edges: []
@@ -135,7 +179,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2e4d99bf939c66240a84a3c3e8cc1782
+    spriteID: 8a5b7064d34fa5f49ac35a769671c366
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +189,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      complete_0: 1475567256
+      pngtree-happy-emoji-emoticon-showing-double-thumbs-up-like-picture-image_7851906_0: 1957646849
+      pngtree-happy-emoji-emoticon-showing-double-thumbs-up-like-picture-image_7851906_1: -990351340
+      pngtree-happy-emoji-emoticon-showing-double-thumbs-up-like-picture-image_7851906_2: 875365580
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

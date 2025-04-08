@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a44db5ad0cada7b45b83efa7495a5e93
+guid: 8266666476ef09f4eb70a56602d0e572
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: complete_0
+      name: Torpy_Logo_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 781
-        height: 178
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9366dd7175853b4589675b4be042e07
-      internalID: 1475567256
+      spriteID: aff781fb684252f4ea9ed2f94af81e16
+      internalID: 1310361894
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2e4d99bf939c66240a84a3c3e8cc1782
+    spriteID: aee2be5cc8ee09e499f7b7cc1bfed335
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      complete_0: 1475567256
+      Torpy_Logo_0: 1310361894
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

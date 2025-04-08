@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa2d0143306a7545bc795d4091d09f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 40
+  moveSpeed: 4
 --- !u!1 &1575702363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,7 +2712,7 @@ PrefabInstance:
       objectReference: {fileID: 436998241}
     - target: {fileID: 2151377688607037225, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
       propertyPath: moveSpeed
-      value: 40
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2361657437429963735, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
       propertyPath: m_Materials.Array.size
@@ -2744,11 +2744,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4799939859002319891, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4799939859002319891, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.67
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4799939859002319891, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2874,12 +2874,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4115450573626330688, guid: 989c80e6d8a5fca46889ddd0b0c5e543, type: 3}
       propertyPath: waveConfigurations.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4115450573626330688, guid: 989c80e6d8a5fca46889ddd0b0c5e543, type: 3}
       propertyPath: 'waveConfigurations.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: a97893f949899354bac051499f5a9865, type: 2}
+      objectReference: {fileID: 11400000, guid: a4f9f276590fa2d46b7beddb00eb7163, type: 2}
     - target: {fileID: 4115450573626330688, guid: 989c80e6d8a5fca46889ddd0b0c5e543, type: 3}
       propertyPath: 'waveConfigurations.Array.data[1]'
       value: 

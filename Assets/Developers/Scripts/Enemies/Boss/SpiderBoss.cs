@@ -1,5 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
+
 
 public class SpiderBoss : MonoBehaviour
 {
@@ -220,5 +223,7 @@ public class SpiderBoss : MonoBehaviour
         {
             ShootLeg(); // Shoot the last leg when the boss dies
         }
+
+        SceneManager.LoadScene("WinScreen");
     }
 }

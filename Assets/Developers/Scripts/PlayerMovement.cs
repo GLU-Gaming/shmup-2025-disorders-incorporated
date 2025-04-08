@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     public float flameThrowerFireRate = 3;
     private float nextFlameThrowerFireTime = 0f;
     public bool canShootFlames = true;
+    public float FlameThrowerCharge;
+    private bool FlameThrowerActive;
 
     [Header("Animation:")]
     public Transform childWithAnimator; // Reference to the child object with the Animator component
@@ -71,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         ForceFieldCharge = gamemanager.maxForceCharge;
+        FlameThrowerCharge = gamemanager.maxFlameThrowerCharge;
     }
 
     void Update()
@@ -107,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
             nextTorpedoFireTime = Time.time + torpedoFireRate;
         }
 
-        if (Input.GetButton("Fire3") && Time.time >= nextFlameThrowerFireTime && canShootFlames)
+        if (Input.GetButton("Fire3") && Time.time >= nextFlameThrowerFireTime && canShootFlames && FlameThrowerCharge > 0)
         {
             Debug.Log("Flames");
             StartCoroutine(FlameThrowerDeploy());
@@ -146,6 +149,11 @@ public class PlayerMovement : MonoBehaviour
     {
         canShootFlames = false;
         FlamethrowerPrefab.SetActive(true);
+        FlameThrowerCharge--;
+        if (gamemanager != null)
+        {
+            gamemanager.UpdateFlameThrowerChargeUI(FlameThrowerCharge);
+        }
         yield return new WaitForSeconds(2f); // Wait for 2 seconds
         FlamethrowerPrefab.SetActive(false);
         canShootFlames = true;

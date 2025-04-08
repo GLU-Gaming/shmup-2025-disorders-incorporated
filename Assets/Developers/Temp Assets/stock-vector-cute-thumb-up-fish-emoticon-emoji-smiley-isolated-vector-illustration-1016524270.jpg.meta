@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a44db5ad0cada7b45b83efa7495a5e93
+guid: f96db1b07e3f631448ef20ccfa5f8f64
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: complete_0
+      name: stock-vector-cute-thumb-up-fish-emoticon-emoji-smiley-isolated-vector-illustration-1016524270_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 781
-        height: 178
+        width: 1500
+        height: 1600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9366dd7175853b4589675b4be042e07
-      internalID: 1475567256
+      spriteID: e266443831161324e95d13b28793a598
+      internalID: -1621732885
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2e4d99bf939c66240a84a3c3e8cc1782
+    spriteID: 201919e5eeee5f145be796145e8d15d8
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      complete_0: 1475567256
+      stock-vector-cute-thumb-up-fish-emoticon-emoji-smiley-isolated-vector-illustration-1016524270_0: -1621732885
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

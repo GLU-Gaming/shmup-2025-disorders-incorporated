@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   enemyConfigurations:
-  - {fileID: 11400000, guid: 176fc97287138db4fac564e50ed26ad7, type: 2}
-  - {fileID: 11400000, guid: 245d5b0b89796bc408e9617b13c70312, type: 2}
-  - {fileID: 11400000, guid: dec3d7205e4d7f54e92f1bffb2704aca, type: 2}
-  - {fileID: 11400000, guid: 1172caa683224384b92b260aa70a8f91, type: 2}
-  - {fileID: 11400000, guid: 489b661a0edfcde46a57a63960bb1478, type: 2}
   - {fileID: 11400000, guid: 86a4f4633213f2744957242a83797a16, type: 2}
+  - {fileID: 11400000, guid: 1172caa683224384b92b260aa70a8f91, type: 2}
