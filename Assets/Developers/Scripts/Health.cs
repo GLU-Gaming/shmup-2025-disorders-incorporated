@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public float currentHealth;
     public Image healthbarFill;
     private Gamemanager gamemanager;
+    public float lowHealthThreshold = 200f; // Threshold for low health
 
     void Start()
     {
@@ -43,14 +44,38 @@ public class Health : MonoBehaviour
             {
                 Death();
             }
+            else if (currentHealth <= lowHealthThreshold)
+            {
+                if (gamemanager != null)
+                {
+                    gamemanager.ActivateVignette(true);
+                }
+            }
+            else
+            {
+                if (gamemanager != null)
+                {
+                    gamemanager.ActivateVignette(false);
+                }
+            }
         }
     }
 
-    // Death function to destroy the GameObject
+    // Death function to destroy the GameObject and its parent objects
     public void Death()
     {
         Debug.Log(gameObject.name + " has died!");
+
+        // Destroy the current GameObject
         Destroy(gameObject);
+
+        // Destroy all parent objects
+        Transform parent = transform.parent;
+        while (parent != null)
+        {
+            Destroy(parent.gameObject);
+            parent = parent.parent;
+        }
 
         if (gameObject.CompareTag("Player"))
         {

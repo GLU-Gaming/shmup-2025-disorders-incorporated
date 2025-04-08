@@ -4849,7 +4849,7 @@ GameObject:
   - component: {fileID: 4523859842890318124}
   m_Layer: 7
   m_Name: Torpedo_Player_msh
-  m_TagString: Bullet
+  m_TagString: PlayerTorpedo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4963,9 +4963,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  lifetime: 4
+  lifetime: 8
   damageCount: 90
   isEnemy: 0
+  isTorpedo: 1
 --- !u!136 &4523859842890318124
 CapsuleCollider:
   m_ObjectHideFlags: 0
