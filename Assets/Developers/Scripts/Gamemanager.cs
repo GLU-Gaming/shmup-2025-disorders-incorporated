@@ -21,6 +21,8 @@ public class Gamemanager : MonoBehaviour
     public TMP_Text highscoreText;
     public TMP_Text waveText;
 
+    public GameObject damageVignite;
+
     private int score;
     private int highscore;
     private int waveCount;
@@ -49,6 +51,11 @@ public class Gamemanager : MonoBehaviour
         UpdateWaveUI();
 
         StartCoroutine(GameLoop());
+    }
+
+    private void Vignitte()
+    {
+        damageVignite.SetActive(true);        
     }
 
     public void UpdateForceChargeUI(float currentCharge)

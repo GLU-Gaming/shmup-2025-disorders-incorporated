@@ -160,6 +160,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170859478787440260, guid: 96448fb6146812e449ae59adf05df470, type: 3}
+      propertyPath: rotationAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170859478787440260, guid: 96448fb6146812e449ae59adf05df470, type: 3}
       propertyPath: rotationSpeed
       value: 200
       objectReference: {fileID: 0}
