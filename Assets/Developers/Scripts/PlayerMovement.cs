@@ -38,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
     public float flameThrowerFireRate = 3;
     private float nextFlameThrowerFireTime = 0f;
     public bool canShootFlames = true;
+    public float FlameThrowerCharge;
+    private bool FlameThrowerActive;
+    public float flameThrowerDrainRate = 1f; // Rate at which the flamethrower charge drains
 
     [Header("Animation:")]
     public Transform childWithAnimator; // Reference to the child object with the Animator component
@@ -71,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         ForceFieldCharge = gamemanager.maxForceCharge;
+        FlameThrowerCharge = gamemanager.maxFlameThrowerCharge;
     }
 
     void Update()
@@ -78,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         HandleMovement();
         HandleShooting();
         HandleShielding();
+        HandleFlameThrower();
     }
 
     void HandleMovement()
@@ -105,13 +110,6 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(DelayedShootTorpedo());
             nextTorpedoFireTime = Time.time + torpedoFireRate;
-        }
-
-        if (Input.GetButton("Fire3") && Time.time >= nextFlameThrowerFireTime && canShootFlames)
-        {
-            Debug.Log("Flames");
-            StartCoroutine(FlameThrowerDeploy());
-            nextFlameThrowerFireTime = Time.time + flameThrowerFireRate;
         }
     }
 
@@ -142,13 +140,33 @@ public class PlayerMovement : MonoBehaviour
         canShootTorpedo = true;
     }
 
-    IEnumerator FlameThrowerDeploy()
+    void HandleFlameThrower()
     {
-        canShootFlames = false;
-        FlamethrowerPrefab.SetActive(true);
-        yield return new WaitForSeconds(2f); // Wait for 2 seconds
-        FlamethrowerPrefab.SetActive(false);
-        canShootFlames = true;
+        if (Input.GetButton("Fire3") && FlameThrowerCharge > 0)
+        {
+            if (!FlameThrowerActive)
+            {
+                FlamethrowerPrefab.SetActive(true);
+                FlameThrowerActive = true;
+            }
+
+            FlameThrowerCharge -= flameThrowerDrainRate * Time.deltaTime;
+            if (gamemanager != null)
+            {
+                gamemanager.UpdateFlameThrowerChargeUI(FlameThrowerCharge);
+            }
+
+            if (FlameThrowerCharge <= 0)
+            {
+                FlamethrowerPrefab.SetActive(false);
+                FlameThrowerActive = false;
+            }
+        }
+        else
+        {
+            FlamethrowerPrefab.SetActive(false);
+            FlameThrowerActive = false;
+        }
     }
 
     void HandleShielding()

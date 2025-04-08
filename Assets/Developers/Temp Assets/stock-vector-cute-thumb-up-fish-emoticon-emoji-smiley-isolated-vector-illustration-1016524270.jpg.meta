@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e4be825997f8ef641bba090d1f30763f
+guid: f96db1b07e3f631448ef20ccfa5f8f64
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fueltank_ammo_ui_0
+      name: stock-vector-cute-thumb-up-fish-emoticon-emoji-smiley-isolated-vector-illustration-1016524270_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 303
-        height: 412
+        width: 1500
+        height: 1600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ce501f6fbe6bb64294ca4c96bc647c8
-      internalID: -503186667
+      spriteID: e266443831161324e95d13b28793a598
+      internalID: -1621732885
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0e85447010017b04b92457cc693c333b
+    spriteID: 201919e5eeee5f145be796145e8d15d8
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fueltank_ammo_ui_0: -503186667
+      stock-vector-cute-thumb-up-fish-emoticon-emoji-smiley-isolated-vector-illustration-1016524270_0: -1621732885
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

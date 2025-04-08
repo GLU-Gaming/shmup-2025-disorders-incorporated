@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -13,9 +14,14 @@ public class Gamemanager : MonoBehaviour
     public float maxForceCharge = 300;
     public Image ForceFill;
 
+    public float maxFlameThrowerCharge = 100;
+    public Image FlameThrowerFill;
+
     public TMP_Text scoreText;
     public TMP_Text highscoreText;
     public TMP_Text waveText;
+
+    public GameObject damageVignite;
 
     private int score;
     private int highscore;
@@ -33,7 +39,9 @@ public class Gamemanager : MonoBehaviour
         }
 
         UpdateForceChargeUI(maxForceCharge); // Initialize the UI bar to full charge
+        UpdateFlameThrowerChargeUI(maxFlameThrowerCharge); // Initialize the UI bar to full charge
 
+        // Load the score from PlayerPrefs
         score = 0;
         highscore = PlayerPrefs.GetInt("Highscore", 0);
         waveCount = 0;
@@ -45,12 +53,26 @@ public class Gamemanager : MonoBehaviour
         StartCoroutine(GameLoop());
     }
 
+    private void Vignitte()
+    {
+        damageVignite.SetActive(true);        
+    }
+
     public void UpdateForceChargeUI(float currentCharge)
     {
         if (ForceFill != null)
         {
             ForceFill.fillAmount = currentCharge / maxForceCharge;
             Debug.Log("Force Charge Updated: " + ForceFill.fillAmount);
+        }
+    }
+
+    public void UpdateFlameThrowerChargeUI(float currentCharge)
+    {
+        if (FlameThrowerFill != null)
+        {
+            FlameThrowerFill.fillAmount = currentCharge / maxFlameThrowerCharge;
+            Debug.Log("FlameThrower Charge Updated: " + FlameThrowerFill.fillAmount);
         }
     }
 
@@ -64,6 +86,9 @@ public class Gamemanager : MonoBehaviour
             UpdateHighscoreUI();
         }
         UpdateScoreUI();
+
+        // Save the score to PlayerPrefs
+        PlayerPrefs.SetInt("Score", score);
     }
 
     private void UpdateScoreUI()
@@ -131,7 +156,6 @@ public class Gamemanager : MonoBehaviour
             }
         }
     }
-
 
     private bool AreEnemiesInRange()
     {

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a44db5ad0cada7b45b83efa7495a5e93
+guid: 615d28c4627b6ac45be424e24f707331
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: complete_0
+      name: Jerry_Can_First_UI_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 781
-        height: 178
+        width: 303
+        height: 412
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9366dd7175853b4589675b4be042e07
-      internalID: 1475567256
+      spriteID: 37ba3d548fd0f4d4b90d2191175c97b8
+      internalID: 1091361513
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2e4d99bf939c66240a84a3c3e8cc1782
+    spriteID: dc6d015e22de15d429530bbd3fb2e462
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      complete_0: 1475567256
+      Jerry_Can_First_UI_0: 1091361513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

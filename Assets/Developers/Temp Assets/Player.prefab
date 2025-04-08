@@ -10148,15 +10148,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.5
+      value: 47.683628
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3283157
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -250.86478
+      value: -138.16742
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10454,8 +10454,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 3.0080972, z: 10.529464}
-  m_Center: {x: -4.324198e-15, y: 0.7484477, z: 2.304288}
+  m_Size: {x: 1, y: 3.250119, z: 10.529464}
+  m_Center: {x: -1.4915713e-14, y: 0.6274358, z: 2.304288}
 --- !u!65 &3395406220700284196
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10496,8 +10496,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2749738, y: 0.59420586, z: 3.922875}
-  m_Center: {x: 0.13748693, y: 4.245599, z: -0.48872828}
+  m_Size: {x: 1.2749738, y: 1.4086969, z: 3.922875}
+  m_Center: {x: 0.13748693, y: 3.8383512, z: -0.48872817}
 --- !u!1 &7623220654421365005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3232854903652864757, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
