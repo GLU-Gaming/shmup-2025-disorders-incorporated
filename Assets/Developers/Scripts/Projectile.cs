@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float damageCount;
 
     public bool isEnemy = true;
+    public bool isTorpedo = false; 
 
     private Health healthScript;
     private Rigidbody rb;
@@ -30,9 +31,14 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if(other.gameObject.CompareTag("Bullet"))
+        if(other.gameObject.CompareTag("Bullet") && !isTorpedo)
         {
             Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Bullet") && isTorpedo)
+        {
             Destroy(other.gameObject);
         }
 

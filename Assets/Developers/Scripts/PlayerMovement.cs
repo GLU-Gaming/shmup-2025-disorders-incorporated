@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canShootTorpedo = true;
 
     [Header("FlameThrower:")]
+    public AudioSource audioSource;
     public GameObject FlamethrowerPrefab;
     public float flameThrowerFireRate = 3;
     private float nextFlameThrowerFireTime = 0f;
@@ -83,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
         HandleShooting();
         HandleShielding();
         HandleFlameThrower();
+
+
     }
 
     void HandleMovement()
@@ -148,6 +151,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 FlamethrowerPrefab.SetActive(true);
                 FlameThrowerActive = true;
+                audioSource.Play();
+
             }
 
             FlameThrowerCharge -= flameThrowerDrainRate * Time.deltaTime;
@@ -166,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
         {
             FlamethrowerPrefab.SetActive(false);
             FlameThrowerActive = false;
+            audioSource.Stop();
         }
     }
 
