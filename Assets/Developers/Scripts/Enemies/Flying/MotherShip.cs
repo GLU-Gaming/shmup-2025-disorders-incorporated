@@ -5,6 +5,7 @@ public class MotherShip : FlyingEnemy
 {
     public Animator animator; // Reference to the Animator component
     public GameObject enemyPrefab; // Prefab of the enemy to summon
+    public GameObject spawnParticlePrefab; // Prefab of the particle system to instantiate
     public float summonInterval = 5f; // Interval between summoning enemies
     public int numberOfEnemiesToSummon = 3; // Number of enemies to summon each time
     public float summonRadius = 2f; // Radius within which enemies will be summoned
@@ -59,8 +60,16 @@ public class MotherShip : FlyingEnemy
             Vector3 summonPosition = transform.position;
             summonPosition.y += Random.Range(minSpawnYOffset, maxSpawnYOffset); // Random Y offset relative to the mother ship
             summonPosition.z = spawnOffsetZ; // Keep Z position constant
+            summonPosition.x += (i - (numberOfEnemiesToSummon - 1) / 2f) * summonRadius -5; // Align horizontally
+
+            // Instantiate the particle system at the spawn position
+            if (spawnParticlePrefab != null)
+            {
+                Instantiate(spawnParticlePrefab, summonPosition, Quaternion.identity);
+            }
             summonPosition.x += (i - (numberOfEnemiesToSummon - 1) / 2f) * summonRadius; // Align horizontally
 
+            // Instantiate the enemy at the spawn position
             Instantiate(enemyPrefab, summonPosition, Quaternion.identity);
         }
 

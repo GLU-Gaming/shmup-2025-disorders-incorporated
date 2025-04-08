@@ -9,6 +9,7 @@ TagManager:
   - GameManager
   - Shield
   - Legs
+  - PlayerTorpedo
   layers:
   - Default
   - TransparentFX

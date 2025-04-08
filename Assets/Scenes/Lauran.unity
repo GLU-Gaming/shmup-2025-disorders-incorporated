@@ -6122,6 +6122,7 @@ MonoBehaviour:
   maxHealth: 300
   currentHealth: 0
   healthbarFill: {fileID: 3067510192688436957}
+  lowHealthThreshold: 200
 --- !u!224 &1490730365187945784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6225,9 +6226,12 @@ MonoBehaviour:
   torpedoFirePoint: {fileID: 7005481495225903724}
   torpedoFireRate: 2
   canShootTorpedo: 1
+  audioSource: {fileID: 0}
   FlamethrowerPrefab: {fileID: 505429357011942026}
   flameThrowerFireRate: 3.5
   canShootFlames: 1
+  FlameThrowerCharge: 0
+  flameThrowerDrainRate: 1
   childWithAnimator: {fileID: 4978296883907854483}
 --- !u!114 &2533201740975832980
 MonoBehaviour:
@@ -6320,6 +6324,7 @@ MonoBehaviour:
   maxHealth: 250
   currentHealth: 0
   healthbarFill: {fileID: 7929009649447872450}
+  lowHealthThreshold: 200
 --- !u!224 &3611414230615300512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6834,6 +6839,7 @@ MonoBehaviour:
   maxHealth: 450
   currentHealth: 0
   healthbarFill: {fileID: 0}
+  lowHealthThreshold: 200
 --- !u!1 &5741137635020295245
 GameObject:
   m_ObjectHideFlags: 0
@@ -7313,8 +7319,8 @@ MonoBehaviour:
   numberOfEnemiesToSummon: 2
   summonRadius: 1
   spawnOffsetZ: 0
-  minSpawnY: -5
-  maxSpawnY: -1
+  minSpawnYOffset: -2
+  maxSpawnYOffset: -1
 --- !u!222 &7565996651453841774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7323,63 +7329,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5741137635020295245}
   m_CullTransparentMesh: 1
---- !u!1001 &7575494321804144296
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3820866002654564429, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_Name
-      value: Fuzzle_Particle_Effect
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 26.053
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.9899998
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -132.953
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993384498128488721, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4fe401847ee8cd547b2e2e73a96179b2, type: 3}
 --- !u!224 &7748939459094705085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7686,6 +7635,5 @@ SceneRoots:
   - {fileID: 9007437115592478976}
   - {fileID: 2022139991}
   - {fileID: 497181407}
-  - {fileID: 7575494321804144296}
   - {fileID: 440338954508888642}
   - {fileID: 117020383999721765}

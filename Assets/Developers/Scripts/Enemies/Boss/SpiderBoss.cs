@@ -35,6 +35,8 @@ public class SpiderBoss : MonoBehaviour
     private bool isReloading = false;
     private bool isMinigunCoolingDown = false;
 
+    public GameObject muzzleFlash;
+
     private void Start()
     {
         healthScript = GetComponent<Health>();
@@ -62,6 +64,17 @@ public class SpiderBoss : MonoBehaviour
             }
             shieldPrefab.SetActive(false);
         }
+
+        if (isMinigunCoolingDown)
+        {
+            muzzleFlash.SetActive(false);
+
+        }
+        else
+        {
+            muzzleFlash.SetActive(true);
+        }
+
 
         // Check if it's time to fire
         if (Time.time >= nextFireTime && !isShielding && !isReloading && !isMinigunCoolingDown)
