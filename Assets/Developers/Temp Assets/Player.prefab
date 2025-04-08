@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2345638657589390141
 Transform:
   m_ObjectHideFlags: 0
@@ -5060,7 +5060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1710799249509465634
 Transform:
   m_ObjectHideFlags: 0
@@ -10163,11 +10163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.322
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10402,12 +10402,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2a6a5996a54fa47b54b2d5d4b6f0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 4
   Manager: {fileID: 0}
   ForceField: {fileID: 1799103935330419503}
+  AudioShieldSource: {fileID: 0}
   ForceFieldCharge: 0
   shockwaveRadius: 10
   shockwaveForce: 15
+  AudioLaserSource: {fileID: 0}
   bulletPrefab: {fileID: 6617231985685465893, guid: 1bc4b5bc45d4ccc44b5cefb7b998ce86, type: 3}
   bulletPosition: {fileID: 4139998821160398884}
   firePoint: {fileID: 6710614829440513745}
@@ -10417,7 +10419,7 @@ MonoBehaviour:
   torpedoFirePoint: {fileID: 7005481495803406597}
   torpedoFireRate: 2
   canShootTorpedo: 1
-  audioSource: {fileID: 0}
+  AudioSource: {fileID: 0}
   FlamethrowerPrefab: {fileID: 6772820528849551893}
   flameThrowerFireRate: 3.5
   canShootFlames: 1
@@ -10436,6 +10438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee181a0e6bf39547813d272b075e33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioDamageSource: {fileID: 0}
   maxHealth: 250
   currentHealth: 0
   healthbarFill: {fileID: 0}
