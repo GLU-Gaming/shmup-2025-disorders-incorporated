@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec0c217407a711746adfa463349c1cfb
+guid: e51ceffcadcdb4744bc8225c3d897d9c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2D parallax background test 3_0
+      name: 2D parallax background_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd58887d30822134e8ddcbcbbc2210a2
-      internalID: 1742509361
+      spriteID: 981d938ee2d7eed4cb7b147b6077ea8b
+      internalID: -380701247
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: faf1c0e2b3a8fbd4baf528de3d532d29
+    spriteID: a59f5d74686e71642ba9c600c9b03a0a
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2D parallax background test 3_0: 1742509361
+      2D parallax background_0: -380701247
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
