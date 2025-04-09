@@ -40,7 +40,7 @@ public class PickUp : MonoBehaviour
             switch (rotationAxis)
             {
                 case RotationAxis.Hp:
-                    Health health = other.GetComponent<Health>();
+                    PlayerHp health = other.GetComponent<PlayerHp>();
                     if (health != null)
                     {
                         health.RestoreHealth(100f);

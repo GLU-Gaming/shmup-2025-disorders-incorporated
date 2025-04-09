@@ -30,8 +30,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.gameObject.CompareTag("Bullet") && !isTorpedo)
+        if (other.gameObject.CompareTag("Bullet") && isEnemy)
+        {
+            
+        }
+        else if (other.gameObject.CompareTag("Bullet") && !isTorpedo)
         {
             Destroy(gameObject);
             Destroy(other.gameObject);

@@ -69,7 +69,7 @@ public class SpiderBoss : MonoBehaviour
         if (isMinigunCoolingDown)
         {
             muzzleFlash.SetActive(false);
-            AudioMinigunSource.Stop();
+            //AudioMinigunSource.Stop();
         }
         else
         {
@@ -102,6 +102,7 @@ public class SpiderBoss : MonoBehaviour
         if (isShielding)
         {
             Shield();
+            muzzleFlash.SetActive(false);
         }
     }
 
@@ -150,7 +151,10 @@ public class SpiderBoss : MonoBehaviour
         foreach (Transform firePoint in firePoints)
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            AudioMinigunSource.Play();
+            //if(AudioMinigunSource != null)
+            //{
+            //AudioMinigunSource.Play();
+            //}
         }
     }
 

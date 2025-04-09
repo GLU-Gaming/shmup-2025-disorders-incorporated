@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3227491593431280311}
   - component: {fileID: 7259998395696354595}
   - component: {fileID: -232871333318012070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MiniAmmo
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   lifetime: 1.5
   damageCount: 0.2
   isEnemy: 1
+  isTorpedo: 0
 --- !u!54 &-232871333318012070
 Rigidbody:
   m_ObjectHideFlags: 0

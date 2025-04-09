@@ -8,21 +8,21 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Prefabs/Scenes/Menu.unity
     guid: cd08ee17bc9dc044f84763ec63b8f505
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: d187d0ff3ec3ec342a41cb28b9dd0243
   - enabled: 1
-    path: Assets/Scenes/Gameover.unity
-    guid: 0b0c80cd14c07854985beacfd76510b4
-  - enabled: 1
-    path: Assets/Scenes/WinScreen.unity
-    guid: 33d93dc1e67c8bf4c8a3b7ef08668475
+    path: Assets/Scenes/MainMenu.unity
+    guid: c9dd96d2ab64fb541a6c6e18c5e8b832
   - enabled: 1
     path: Assets/Scenes/TestingScene.unity
     guid: 53f0e3efb2ba7ed488b675a06573475f
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: c9dd96d2ab64fb541a6c6e18c5e8b832
+    path: Assets/Scenes/WinScreen.unity
+    guid: 33d93dc1e67c8bf4c8a3b7ef08668475
+  - enabled: 1
+    path: Assets/Scenes/Gameover.unity
+    guid: 0b0c80cd14c07854985beacfd76510b4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

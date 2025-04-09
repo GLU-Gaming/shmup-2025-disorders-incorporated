@@ -31917,7 +31917,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 37115689ae23e6c4ab56a464bda927ed, type: 2}
+  - {fileID: 2100000, guid: c827f1a7b3df9314cb2b961fcfe9cade, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -53502,25 +53502,9 @@ PrefabInstance:
       propertyPath: splashAudioSource
       value: 
       objectReference: {fileID: 59706752}
-    - target: {fileID: 3679984960853916941, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
-      propertyPath: m_Size.x
-      value: 3.4125023
-      objectReference: {fileID: 0}
-    - target: {fileID: 3679984960853916941, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
-      propertyPath: m_Size.y
-      value: 3.0080974
-      objectReference: {fileID: 0}
-    - target: {fileID: 3679984960853916941, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
-      propertyPath: m_Center.x
-      value: 0.011769158
-      objectReference: {fileID: 0}
-    - target: {fileID: 3679984960853916941, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
-      propertyPath: m_Center.y
-      value: 0.7484477
-      objectReference: {fileID: 0}
-    - target: {fileID: 3679984960853916941, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
-      propertyPath: m_Center.z
-      value: 2.304288
+    - target: {fileID: 2151377688607037225, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
+      propertyPath: splashTriggerRange
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4799939859002319891, guid: 3a6d70ab73d18154090aa01d95054e24, type: 3}
       propertyPath: m_LocalPosition.x
