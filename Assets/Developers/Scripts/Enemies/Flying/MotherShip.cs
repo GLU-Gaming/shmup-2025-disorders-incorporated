@@ -60,7 +60,7 @@ public class MotherShip : FlyingEnemy
             Vector3 summonPosition = transform.position;
             summonPosition.y += Random.Range(minSpawnYOffset, maxSpawnYOffset); // Random Y offset relative to the mother ship
             summonPosition.z = spawnOffsetZ; // Keep Z position constant
-            summonPosition.x += (i - (numberOfEnemiesToSummon - 1) / 2f) * summonRadius -5; // Align horizontally
+            summonPosition.x += (i - (numberOfEnemiesToSummon - 1) / 2f) * summonRadius +5f; // Align horizontally
 
             // Instantiate the particle system at the spawn position
             if (spawnParticlePrefab != null)
