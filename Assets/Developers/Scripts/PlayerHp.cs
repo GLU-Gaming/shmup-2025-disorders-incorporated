@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class PlayerHp : MonoBehaviour
 {
     public AudioSource AudioDamageSource;
     public float maxHealth = 100f;
     public float currentHealth;
     public Image healthbarFill;
     private Gamemanager gamemanager;
+    public float lowHealthThreshold = 20f; // Threshold for low health
 
     void Start()
     {
@@ -48,6 +49,20 @@ public class Health : MonoBehaviour
             if (currentHealth == 0)
             {
                 Death();
+            }
+            else if (currentHealth <= lowHealthThreshold)
+            {
+                if (gamemanager != null)
+                {
+                    gamemanager.ActivateVignette(true);
+                }
+            }
+            else
+            {
+                if (gamemanager != null)
+                {
+                    gamemanager.ActivateVignette(false);
+                }
             }
         }
     }

@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if(other.gameObject.CompareTag("Bullet") && !isTorpedo)
+        if (other.gameObject.CompareTag("Bullet") && !isTorpedo)
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
@@ -47,11 +47,20 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if ((other.gameObject.CompareTag("Enemy") && !isEnemy) || (other.gameObject.CompareTag("Player") && isEnemy))
+        if ((other.gameObject.CompareTag("Enemy") && !isEnemy))
         {
 
             Destroy(gameObject);
             other.GetComponent<Health>().TakeDamage(damageCount);
+
+
+        }
+
+        if ((other.gameObject.CompareTag("Player") && isEnemy))
+        {
+
+            Destroy(gameObject);
+            other.GetComponent<PlayerHp>().TakeDamage(damageCount);
 
 
         }

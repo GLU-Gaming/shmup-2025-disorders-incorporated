@@ -21,7 +21,7 @@ public class Gamemanager : MonoBehaviour
     public TMP_Text highscoreText;
     public TMP_Text waveText;
 
-    public GameObject damageVignite;
+    public GameObject damageVignette;
 
     private int score;
     private int highscore;
@@ -29,6 +29,24 @@ public class Gamemanager : MonoBehaviour
 
     public List<WaveConfiguration> waveConfigurations;
     public float enemyDetectionRadius = 10f; // Radius to check for enemies
+
+    private void OnEnable()
+    {
+        // Subscribe to the scene loaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe from the scene loaded event
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Call the Start function when the scene is loaded
+        Start();
+    }
 
     private void Start()
     {
@@ -55,9 +73,9 @@ public class Gamemanager : MonoBehaviour
 
     public void ActivateVignette(bool active)
     {
-        if (damageVignite != null)
+        if (damageVignette != null)
         {
-            damageVignite.SetActive(active);
+            damageVignette.SetActive(active);
         }
     }
 
@@ -75,7 +93,6 @@ public class Gamemanager : MonoBehaviour
         if (FlameThrowerFill != null)
         {
             FlameThrowerFill.fillAmount = currentCharge / maxFlameThrowerCharge;
-            Debug.Log("FlameThrower Charge Updated: " + FlameThrowerFill.fillAmount);
         }
     }
 
@@ -148,10 +165,10 @@ public class Gamemanager : MonoBehaviour
                         playerMovement.StopMovementOnXAxis();
                     }
 
-                    // Summon the Spider Boss
+                    // Summon the Spider Boss at a fixed Y coordinate
                     if (SpiderBossPrefab != null)
                     {
-                        Vector3 spawnPosition = Player.transform.position + new Vector3(25, -2, 0); // Spawn further from the player
+                        Vector3 spawnPosition = new Vector3(Player.transform.position.x + 20, -1.65f, Player.transform.position.z); // Spawn further from the player
                         Quaternion spawnRotation = Quaternion.Euler(0, -90, 0); // Different rotation
                         Instantiate(SpiderBossPrefab, spawnPosition, spawnRotation);
                     }

@@ -534,7 +534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 4.2}
+  m_AnchoredPosition: {x: 0, y: 3.49}
   m_SizeDelta: {x: 15, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2924577541833066255
@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 4417983420411960703}
   - component: {fileID: 1816866327441142519}
   - component: {fileID: 3519382615468223255}
+  - component: {fileID: 8517678129673382670}
   m_Layer: 8
   m_Name: leg_4_msh
   m_TagString: Legs
@@ -708,6 +709,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.016752312, y: 0.0036897524, z: 0.025737772}
   m_Center: {x: -0.008212197, y: -0.001234242, z: -0.006129953}
+--- !u!114 &8517678129673382670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372209869190875644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcda7138fb0b144bba10bf82a37a4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
+  moveSpeed: 20
+  rotationDuration: 0.45
+  homingDuration: 3
+  moveDuration: 10
+  isLeftLeg: 1
 --- !u!1 &1904475043777705477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1346,7 @@ GameObject:
   - component: {fileID: 4787451290762258096}
   - component: {fileID: 6309386110047897308}
   - component: {fileID: 5876460389309228593}
+  - component: {fileID: 4683221672618744736}
   m_Layer: 8
   m_Name: leg_5_msh
   m_TagString: Legs
@@ -1423,6 +1443,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.016752312, y: 0.0036897487, z: 0.025737775}
   m_Center: {x: -0.008212197, y: -0.0012342427, z: -0.0061299517}
+--- !u!114 &4683221672618744736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477009812861023797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcda7138fb0b144bba10bf82a37a4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
+  moveSpeed: 20
+  rotationDuration: 0.45
+  homingDuration: 3
+  moveDuration: 10
+  isLeftLeg: 1
 --- !u!1 &3676170412991194887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,7 +2564,7 @@ MonoBehaviour:
   shieldPrefab: {fileID: 2186069769289577282}
   reloadWindowDuration: 2
   minigunCooldownDuration: 6
-  AudioMinigunSource: {fileID: 0}
+  AudioMinigunSource: {fileID: 7007010220975210317, guid: 9903a93ae5af07d4cae75b9b5008f4d2, type: 3}
   muzzleFlash: {fileID: 7987894527544774202}
 --- !u!95 &9177870976780519110
 Animator:
@@ -2536,7 +2574,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5699009891825893150}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 963ad62d58840404b96fbe38ee3e9e43, type: 2}
   m_CullingMode: 0
@@ -2566,7 +2604,6 @@ MonoBehaviour:
   maxHealth: 1500
   currentHealth: 0
   healthbarFill: {fileID: 5507266647473996291}
-  lowHealthThreshold: 200
 --- !u!65 &1675819256539670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2600,6 +2637,7 @@ GameObject:
   - component: {fileID: 3116610254451185557}
   - component: {fileID: 8525588947737408634}
   - component: {fileID: 1328038321305343414}
+  - component: {fileID: 770561885053602782}
   m_Layer: 8
   m_Name: leg _7_msh
   m_TagString: Legs
@@ -2696,6 +2734,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01675231, y: 0.0036897494, z: 0.025737772}
   m_Center: {x: -0.008212194, y: -0.001234247, z: -0.0061299484}
+--- !u!114 &770561885053602782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5747368930359342483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcda7138fb0b144bba10bf82a37a4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
+  moveSpeed: 20
+  rotationDuration: 0.45
+  homingDuration: 3
+  moveDuration: 10
+  isLeftLeg: 1
 --- !u!1 &5805178472261234418
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,13 +3516,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7244582787739178692}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.01986503, y: -0.74097174, z: 0.021940673, w: 0.6708837}
-  m_LocalPosition: {x: 5.456562, y: 1.3880395, z: 2.084821}
+  m_LocalRotation: {x: -0.70710695, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.171, y: 1.7811712, z: 1.893}
   m_LocalScale: {x: 100, y: 99.99998, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1166964737448022772}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -88.616, y: 0, z: 0}
 --- !u!33 &6524050286532482248
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3775,6 +3831,7 @@ GameObject:
   - component: {fileID: 2674460384547171337}
   - component: {fileID: 5017961611499446460}
   - component: {fileID: 2058405032293098055}
+  - component: {fileID: 4054590196620198800}
   m_Layer: 8
   m_Name: leg_6_msh
   m_TagString: Legs
@@ -3871,6 +3928,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.016752312, y: 0.0036897487, z: 0.025737775}
   m_Center: {x: -0.008212196, y: -0.0012342483, z: -0.0061299535}
+--- !u!114 &4054590196620198800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8450057713753267306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcda7138fb0b144bba10bf82a37a4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
+  moveSpeed: 20
+  rotationDuration: 0.45
+  homingDuration: 3
+  moveDuration: 10
+  isLeftLeg: 1
 --- !u!1 &8799309921942726546
 GameObject:
   m_ObjectHideFlags: 0

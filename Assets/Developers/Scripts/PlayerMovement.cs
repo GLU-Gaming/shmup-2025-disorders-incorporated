@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Settings:")]
     public float moveSpeed = 4f;
-    private Health healthScript;
+    private PlayerHp healthScript;
     private Gamemanager gamemanager;
     public GameObject Manager;
     private bool Moving;
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         HandleMovement();
         HandleShooting();
         HandleShielding();
-        HandleFlameThrower();
+        HandleFlameThrower(); // Ensure this method is called
 
         // Check if the player is within the range of y = -2.0000 and spawn the splash particle effect
         if (Mathf.Abs(transform.position.y - (-2f)) <= splashTriggerRange)
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
     void InitializeComponents()
     {
-        healthScript = GetComponent<Health>();
+        healthScript = GetComponent<PlayerHp>();
         if (healthScript == null)
         {
             Debug.LogError("Health component not found on the player.");
@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             nextFireTime = Time.time + fireRate;
         }
 
-        if (Input.GetButton("Fire2") && Time.time >= nextTorpedoFireTime && canShootTorpedo)
+        if (Input.GetButton("Fire2") && Time.time >= nextTorpedoFireTime && canShootTorpedo && transform.position.y < -2f)
         {
             StartCoroutine(DelayedShootTorpedo());
             nextTorpedoFireTime = Time.time + torpedoFireRate;
@@ -191,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleFlameThrower()
     {
-        if (Input.GetButton("Fire3") && FlameThrowerCharge > 0)
+        if (Input.GetButton("Fire3") && FlameThrowerCharge > 0 && transform.position.y > -2f)
         {
             ActivateFlameThrower();
         }
