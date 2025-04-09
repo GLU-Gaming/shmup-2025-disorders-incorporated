@@ -10014,7 +10014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556749790235933685, guid: 079d267297547aa4c933d13687d88d0e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6556749790235933685, guid: 079d267297547aa4c933d13687d88d0e, type: 3}
       propertyPath: m_TagString
@@ -10163,7 +10163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.81
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c8857f66e7fd284491732dce1cab3de, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10402,7 +10402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2a6a5996a54fa47b54b2d5d4b6f0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 10
   Manager: {fileID: 0}
   ForceField: {fileID: 1799103935330419503}
   AudioShieldSource: {fileID: 0}
@@ -10426,6 +10426,10 @@ MonoBehaviour:
   FlameThrowerCharge: 0
   flameThrowerDrainRate: 1
   childWithAnimator: {fileID: 3284554477585462050}
+  spawnParticlePrefab: {fileID: 9089065514038593953, guid: 1a0de6b8a60ba944e893a067bd21cd7a, type: 3}
+  splashParticlePrefab: {fileID: 7476557114470927753, guid: 33d7e153092e060499e057c5118dade7, type: 3}
+  splashAudioSource: {fileID: 0}
+  splashTriggerRange: 0.05
 --- !u!114 &3429595819449751475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10442,7 +10446,7 @@ MonoBehaviour:
   maxHealth: 250
   currentHealth: 0
   healthbarFill: {fileID: 0}
-  lowHealthThreshold: 200
+  lowHealthThreshold: 100
 --- !u!114 &6466176639127329701
 MonoBehaviour:
   m_ObjectHideFlags: 0
