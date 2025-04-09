@@ -39,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource AudioSource;
     public GameObject FlamethrowerPrefab;
     public float flameThrowerFireRate = 3;
-    private float nextFlameThrowerFireTime = 0f;
     public bool canShootFlames = true;
     public float FlameThrowerCharge;
     private bool FlameThrowerActive;
@@ -51,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject spawnParticlePrefab; // Prefab of the particle system to instantiate
     public GameObject splashParticlePrefab; // Prefab of the splash particle system to instantiate
     public AudioSource splashAudioSource; // Audio source for the splash sound
+
+    public float splashTriggerRange = 0.3f; // Range around -2.0000 to trigger the splash effect
 
     void Start()
     {
@@ -65,9 +66,10 @@ public class PlayerMovement : MonoBehaviour
         HandleShielding();
         HandleFlameThrower();
 
-        // Check if the player is at y = -2.0000 and spawn the splash particle effect
-        if (Mathf.Approximately(transform.position.y, -2f) && splashParticlePrefab != null)
+        // Check if the player is within the range of y = -2.0000 and spawn the splash particle effect
+        if (Mathf.Abs(transform.position.y - (-2f)) <= splashTriggerRange)
         {
+            Debug.Log("Player is within the splash trigger range");
             SpawnSplashParticles();
         }
     }
@@ -177,9 +179,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (splashParticlePrefab != null)
         {
+            Debug.Log("Spawning splash particles");
             Instantiate(splashParticlePrefab, transform.position, Quaternion.identity);
             if (splashAudioSource != null)
             {
+                Debug.Log("Playing splash sound");
                 splashAudioSource.Play();
             }
         }

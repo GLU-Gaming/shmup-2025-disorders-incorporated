@@ -815,7 +815,7 @@ MonoBehaviour:
   retreatSpeed: 0.2
   attackDistance: 25
   detectionBoxSize: {x: 1, y: 50, z: 0}
-  attackDelay: 1.5
+  attackDelay: 0.5
   vibrationAmplitude: 0
   vibrationFrequency: 0
   warningText: {fileID: 2808329548637092800}

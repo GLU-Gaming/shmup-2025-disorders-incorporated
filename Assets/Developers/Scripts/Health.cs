@@ -25,8 +25,13 @@ public class Health : MonoBehaviour
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthBar();
-        AudioDamageSource.Play();
+
+        if (gameObject.CompareTag("Player"))
+        {
+            AudioDamageSource.Play();
+        }
     }
+      
 
     public void RestoreHealth(float amount)
     {
