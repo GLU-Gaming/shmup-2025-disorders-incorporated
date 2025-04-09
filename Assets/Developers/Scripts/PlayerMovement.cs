@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canShootTorpedo = true;
 
     [Header("FlameThrower:")]
-    public AudioSource AudioSource; 
+    public AudioSource AudioSource;
     public GameObject FlamethrowerPrefab;
     public float flameThrowerFireRate = 3;
     private float nextFlameThrowerFireTime = 0f;
@@ -48,8 +48,31 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animation:")]
     public Transform childWithAnimator; // Reference to the child object with the Animator component
     private Animator animator;
+    public GameObject spawnParticlePrefab; // Prefab of the particle system to instantiate
+    public GameObject splashParticlePrefab; // Prefab of the splash particle system to instantiate
+    public AudioSource splashAudioSource; // Audio source for the splash sound
 
     void Start()
+    {
+        InitializeComponents();
+        InitializeCharges();
+    }
+
+    void Update()
+    {
+        HandleMovement();
+        HandleShooting();
+        HandleShielding();
+        HandleFlameThrower();
+
+        // Check if the player is at y = -2.0000 and spawn the splash particle effect
+        if (Mathf.Approximately(transform.position.y, -2f) && splashParticlePrefab != null)
+        {
+            SpawnSplashParticles();
+        }
+    }
+
+    void InitializeComponents()
     {
         healthScript = GetComponent<Health>();
         if (healthScript == null)
@@ -75,25 +98,20 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Child object with Animator not assigned.");
         }
-
-        ForceFieldCharge = gamemanager.maxForceCharge;
-        FlameThrowerCharge = gamemanager.maxFlameThrowerCharge;
     }
 
-    void Update()
+    void InitializeCharges()
     {
-        HandleMovement();
-        HandleShooting();
-        HandleShielding();
-        HandleFlameThrower();
-
-
+        if (gamemanager != null)
+        {
+            ForceFieldCharge = gamemanager.maxForceCharge;
+            FlameThrowerCharge = gamemanager.maxFlameThrowerCharge;
+        }
     }
 
     void HandleMovement()
     {
         float moveY = Input.GetAxis("Vertical"); // W/S movement for up and down
-
         Vector2 movement = new Vector2(moveX, moveY) * moveSpeed * Time.deltaTime;
         transform.Translate(movement.x, movement.y, 0, Space.World);
     }
@@ -127,72 +145,99 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator DelayedShootTorpedo()
     {
         canShootTorpedo = false;
-        // Control the swimming animation
-        if (animator != null)
-        {
-            animator.SetBool("Shoot_Torpedo", true);
-        }
+        ControlTorpedoAnimation(true);
 
         yield return new WaitForSeconds(1.45f); // Wait for 1.45 seconds
+        SpawnTorpedoParticles();
         Instantiate(torpedoPrefab, torpedoFirePoint.position, torpedoPosition.rotation); // Torpedo is shot at set torpedo point
 
-        // Control the swimming animation
-        if (animator != null)
-        {
-            animator.SetBool("Shoot_Torpedo", false);
-        }
+        ControlTorpedoAnimation(false);
         yield return new WaitForSeconds(1.45f); // Wait for 1.45 seconds
 
         canShootTorpedo = true;
+    }
+
+    void ControlTorpedoAnimation(bool isShooting)
+    {
+        if (animator != null)
+        {
+            animator.SetBool("Shoot_Torpedo", isShooting);
+        }
+    }
+
+    void SpawnTorpedoParticles()
+    {
+        if (spawnParticlePrefab != null)
+        {
+            Instantiate(spawnParticlePrefab, torpedoFirePoint.position, torpedoPosition.rotation);
+        }
+    }
+
+    void SpawnSplashParticles()
+    {
+        if (splashParticlePrefab != null)
+        {
+            Instantiate(splashParticlePrefab, transform.position, Quaternion.identity);
+            if (splashAudioSource != null)
+            {
+                splashAudioSource.Play();
+            }
+        }
     }
 
     void HandleFlameThrower()
     {
         if (Input.GetButton("Fire3") && FlameThrowerCharge > 0)
         {
-            if (!FlameThrowerActive)
-            {
-                FlamethrowerPrefab.SetActive(true);
-                FlameThrowerActive = true;
-                AudioSource.Play();
-
-            }
-
-            FlameThrowerCharge -= flameThrowerDrainRate * Time.deltaTime;
-            if (gamemanager != null)
-            {
-                gamemanager.UpdateFlameThrowerChargeUI(FlameThrowerCharge);
-            }
-
-            if (FlameThrowerCharge <= 0)
-            {
-                FlamethrowerPrefab.SetActive(false);
-                FlameThrowerActive = false;
-            }
+            ActivateFlameThrower();
         }
         else
         {
-            FlamethrowerPrefab.SetActive(false);
-            FlameThrowerActive = false;
-            AudioSource.Stop();
+            DeactivateFlameThrower();
         }
+    }
+
+    void ActivateFlameThrower()
+    {
+        if (!FlameThrowerActive)
+        {
+            FlamethrowerPrefab.SetActive(true);
+            FlameThrowerActive = true;
+            AudioSource.Play();
+        }
+
+        FlameThrowerCharge -= flameThrowerDrainRate * Time.deltaTime;
+        if (gamemanager != null)
+        {
+            gamemanager.UpdateFlameThrowerChargeUI(FlameThrowerCharge);
+        }
+
+        if (FlameThrowerCharge <= 0)
+        {
+            DeactivateFlameThrower();
+        }
+    }
+
+    void DeactivateFlameThrower()
+    {
+        FlamethrowerPrefab.SetActive(false);
+        FlameThrowerActive = false;
+        AudioSource.Stop();
     }
 
     void HandleShielding()
     {
         if (Input.GetButton("Shield") && ForceFieldCharge > 0)
         {
-            Shielding();
+            ActivateShield();
         }
         else
         {
-            ForceField.gameObject.SetActive(false);
-            ForceFieldActive = false;
-            AudioShieldSource.Stop();
+            DeactivateShield();
         }
     }
 
-    void Shielding()
+    void ActivateShield()
     {
         if (ForceField != null)
         {
@@ -213,6 +258,13 @@ public class PlayerMovement : MonoBehaviour
                 gamemanager.UpdateForceChargeUI(ForceFieldCharge);
             }
         }
+    }
+
+    void DeactivateShield()
+    {
+        ForceField.gameObject.SetActive(false);
+        ForceFieldActive = false;
+        AudioShieldSource.Stop();
     }
 
     void CreateShockwave()
@@ -240,25 +292,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && !ForceFieldActive)
-        {
-            healthScript.TakeDamage(25f); // 25 dmg
-            Destroy(collision.gameObject);
-        }
+        HandleEnemyCollision(collision);
+    }
 
-        if (collision.gameObject.CompareTag("Enemy") && ForceFieldActive)
+    private void OnTriggerEnter(Collider other)
+    {
+        HandleEnemyTrigger(other);
+    }
+
+    void HandleEnemyCollision(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Stop the movement of the enemy it's colliding with
-            Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
-            if (enemyRb != null)
+            if (!ForceFieldActive)
             {
-                enemyRb.linearVelocity = Vector3.zero;
-                enemyRb.angularVelocity = Vector3.zero;
+                healthScript.TakeDamage(25f); // 25 dmg
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                StopEnemyMovement(collision.gameObject);
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void HandleEnemyTrigger(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy") && !ForceFieldActive)
         {
@@ -270,6 +328,16 @@ public class PlayerMovement : MonoBehaviour
         {
             healthScript.TakeDamage(15f); // 15 dmg
             Destroy(other.gameObject);
+        }
+    }
+
+    void StopEnemyMovement(GameObject enemy)
+    {
+        Rigidbody enemyRb = enemy.GetComponent<Rigidbody>();
+        if (enemyRb != null)
+        {
+            enemyRb.linearVelocity = Vector3.zero;
+            enemyRb.angularVelocity = Vector3.zero;
         }
     }
 }
