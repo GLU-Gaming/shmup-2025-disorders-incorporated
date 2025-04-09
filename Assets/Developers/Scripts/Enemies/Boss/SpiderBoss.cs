@@ -19,6 +19,7 @@ public class SpiderBoss : MonoBehaviour
     public GameObject shieldPrefab;
     public float reloadWindowDuration = 2f; // Duration of the reload window
     public float minigunCooldownDuration = 3f; // Duration of the minigun cooldown
+    public AudioSource AudioMinigunSource;
 
     private float nextFireTime = 0f;
     private float nextEyeAttackTime = 0f;
@@ -149,6 +150,7 @@ public class SpiderBoss : MonoBehaviour
         foreach (Transform firePoint in firePoints)
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            AudioMinigunSource.Play();
         }
     }
 
