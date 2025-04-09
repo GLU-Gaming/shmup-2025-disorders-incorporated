@@ -6,6 +6,7 @@ public class PufferFish : WaterEnemy
     public int explosionDamage = 50;
     public float explosionForce = 700f;
     public GameObject explosionEffect; // Optional: Reference to an explosion effect prefab
+    public AudioSource AudioExplosion;
 
     protected override void Start()
     {
@@ -45,6 +46,7 @@ public class PufferFish : WaterEnemy
         if (explosionEffect != null)
         {
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            AudioExplosion.Play();
         }
     }
 

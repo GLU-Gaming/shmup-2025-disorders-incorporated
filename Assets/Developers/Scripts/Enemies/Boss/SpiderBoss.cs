@@ -69,7 +69,7 @@ public class SpiderBoss : MonoBehaviour
         if (isMinigunCoolingDown)
         {
             muzzleFlash.SetActive(false);
-
+            AudioMinigunSource.Stop();
         }
         else
         {
