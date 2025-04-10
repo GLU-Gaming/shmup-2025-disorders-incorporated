@@ -7,6 +7,10 @@ public class FlameThrower : MonoBehaviour
   
     private void OnTriggerStay(Collider other)
     {
-       other.GetComponent<Health>().TakeDamage(2f);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.GetComponent<Health>().TakeDamage(2f);
+        }
+       
     }
 }
